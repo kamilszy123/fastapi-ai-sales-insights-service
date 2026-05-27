@@ -1,7 +1,11 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
+
+from app.core.dependencies import get_health_service
+from app.services.health_service import HealthService
 
 router = APIRouter()
 
+
 @router.get("/health")
-async def health_check():
-    return {"status": "ok"}
+async def health_check(health_service: HealthService = Depends(get_health_service)):
+    return await health_service.get_status()
