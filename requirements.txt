@@ -4,3 +4,4 @@ pydantic-settings==2.14.1
 pydantic
 sqlalchemy
 psycopg2-binary
+alembic
