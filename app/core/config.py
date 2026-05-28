@@ -5,9 +5,8 @@ class Settings(BaseSettings):
     app_name: str
     debug: bool = False
 
-    postgres_user: str
-    postgres_password: str
-    postgres_db: str
+    database_url: str
+    alembic_database_url: str
 
     model_config = SettingsConfigDict(
         env_file=".env",
