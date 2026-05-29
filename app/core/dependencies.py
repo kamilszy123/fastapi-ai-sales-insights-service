@@ -30,11 +30,13 @@ def get_jwt_service() -> JWTService:
 
 def get_user_service(
         db: Session = Depends(get_db),
-        auth_srvice: AuthService = Depends(get_auth_service)
+        auth_srvice: AuthService = Depends(get_auth_service),
+        jwt_service: JWTService = Depends(get_jwt_service)
 ) -> UserService:
     return UserService(
         db=db,
-        auth_service=auth_srvice
+        auth_service=auth_srvice,
+        jwt_service=jwt_service
     )
 
 
