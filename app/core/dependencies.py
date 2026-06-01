@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 from app.db.session import SessionLocal
 from app.services.auth_service import AuthService
 from app.services.health_service import HealthService
+from app.services.import_service import ImportService
 from app.services.jwt_service import JWTService
 from app.services.user_service import UserService
 
@@ -19,6 +20,10 @@ def get_db() -> Generator[Session]:
     finally:
         db.close()
 
+def get_import_service(
+        db: Session = Depends(get_db)
+) -> ImportService:
+    return ImportService(db=db)
 
 def get_auth_service() -> AuthService:
     return AuthService()

@@ -1,0 +1,2 @@
+class CSVValidationError(Exception):
+    pass

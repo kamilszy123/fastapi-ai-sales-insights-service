@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 from app.api.routes.health import router as health_router
 from app.api.routes.auth import router as auth_router
+from app.api.routes.imports import router as import_router
 
 api_router = APIRouter(prefix="/api/v1")
 
@@ -12,4 +13,9 @@ api_router.include_router(
 api_router.include_router(
     auth_router,
     tags=["Auth"]
+)
+
+api_router.include_router(
+    import_router,
+    tags=["Import"]
 )
