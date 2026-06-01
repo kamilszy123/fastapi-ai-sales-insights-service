@@ -27,7 +27,8 @@ async def import_csv(
 
     result = import_service.import_data(
         parsed_data=parsed_data,
-        user=current_user
+        user=current_user,
+        filename=file.filename
     )
 
     return result
