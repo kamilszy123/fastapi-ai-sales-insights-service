@@ -1,3 +1,4 @@
+from datetime import datetime
 from decimal import Decimal
 
 from pydantic import BaseModel
@@ -15,3 +16,9 @@ class TopProductResponse(BaseModel):
     quantity_sold: int
     returns_quantity: int
     revenue: Decimal
+
+class MonthlyResponse(BaseModel):
+    month: datetime
+    orders_count: int
+    revenue: Decimal
+    average_order_value: Decimal

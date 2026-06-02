@@ -1,5 +1,9 @@
+from decimal import Decimal
+
+from sqlalchemy.sql.functions import user
+
 from app.repositories.analytics_repository import AnalyticsRepository
-from app.schemas.analytics import AnalyticsOverviewResponse, TopProductResponse
+from app.schemas.analytics import AnalyticsOverviewResponse, TopProductResponse, MonthlyResponse
 
 
 class AnalyticsService:
@@ -24,4 +28,16 @@ class AnalyticsService:
                 revenue=row.revenue
             )
             for row in products
+        ]
+
+    def get_monthly_sales(self, user_id: int):
+        monthly_sales = self.analytics_repository.get_monthly_sales(user_id)
+        return [
+            MonthlyResponse(
+                month=row.month,
+                orders_count=row.orders_count,
+                revenue=row.revenue,
+                average_order_value=row.average_order_value.quantize(Decimal("0.01"))
+            )
+            for row in monthly_sales
         ]

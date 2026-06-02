@@ -43,3 +43,25 @@ class AnalyticsRepository:
             .limit(limit)
         )
         return self.db.execute(query).all()
+
+    def get_monthly_sales(self, user_id: int):
+        query = (
+            select(
+                func.date_trunc("month", Order.order_date).label("month"),
+                func.count(Order.id).label("orders_count"),
+                func.sum(Order.total_paid_amount).label("revenue"),
+                func.avg(Order.total_paid_amount).label("average_order_value")
+            )
+            .where(Order.user_id == user_id)
+            .group_by(
+                func.date_trunc("month", Order.order_date)
+            )
+            .order_by(
+                func.date_trunc(
+                    "month",
+                    Order.order_date
+                )
+            )
+        )
+
+        return self.db.execute(query).all()
