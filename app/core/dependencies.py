@@ -4,6 +4,8 @@ from fastapi.params import Depends
 from sqlalchemy.orm import Session
 
 from app.db.session import SessionLocal
+from app.repositories.analytics_repository import AnalyticsRepository
+from app.services.analytics_service import AnalyticsService
 from app.services.auth_service import AuthService
 from app.services.health_service import HealthService
 from app.services.import_service import ImportService
@@ -19,6 +21,15 @@ def get_db() -> Generator[Session]:
 
     finally:
         db.close()
+def get_analytics_repository(
+        db: Session = Depends(get_db)
+) -> AnalyticsRepository:
+    return AnalyticsRepository(db=db)
+
+def get_analytics_service(
+        analytics_repository: AnalyticsRepository = Depends(get_analytics_repository)
+) -> AnalyticsService:
+    return AnalyticsService(analytics_repository=analytics_repository)
 
 def get_import_service(
         db: Session = Depends(get_db)
