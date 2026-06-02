@@ -30,6 +30,8 @@ class ImportJob(Base):
     status: Mapped[ImportStatus] = mapped_column(SQLEnum(ImportStatus), default=ImportStatus.PENDING)
 
     orders_imported: Mapped[int] = mapped_column(default=0)
+    orders_created: Mapped[int] = mapped_column(default=0)
+    orders_updated: Mapped[int] = mapped_column(default=0)
 
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
 
