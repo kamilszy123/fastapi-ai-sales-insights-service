@@ -22,3 +22,8 @@ class MonthlyResponse(BaseModel):
     orders_count: int
     revenue: Decimal
     average_order_value: Decimal
+
+class ReturnsOverviewResponse(BaseModel):
+    products_sold: int
+    returns_count: int
+    return_rate: Decimal

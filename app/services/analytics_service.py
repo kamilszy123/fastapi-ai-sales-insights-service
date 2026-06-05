@@ -3,7 +3,8 @@ from decimal import Decimal
 from sqlalchemy.sql.functions import user
 
 from app.repositories.analytics_repository import AnalyticsRepository
-from app.schemas.analytics import AnalyticsOverviewResponse, TopProductResponse, MonthlyResponse
+from app.schemas.analytics import AnalyticsOverviewResponse, TopProductResponse, MonthlyResponse, \
+    ReturnsOverviewResponse
 
 
 class AnalyticsService:
@@ -41,3 +42,15 @@ class AnalyticsService:
             )
             for row in monthly_sales
         ]
+
+    def get_returns_overview(self, user_id: int):
+        products_sold = self.analytics_repository.get_products_sold(user_id)
+        returns_count = self.analytics_repository.get_returns_count(user_id)
+        return_rate = Decimal("0.00")
+        if products_sold > 0:
+            return_rate = (Decimal(returns_count) / Decimal(products_sold) * Decimal(100)).quantize(Decimal("0.01"))
+        return ReturnsOverviewResponse(
+            products_sold=products_sold,
+            returns_count=returns_count,
+            return_rate=return_rate,
+        )

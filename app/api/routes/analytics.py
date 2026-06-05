@@ -3,7 +3,8 @@ from fastapi import APIRouter, Depends
 from app.core.dependencies import get_analytics_service
 from app.core.security import get_current_user
 from app.models import User
-from app.schemas.analytics import AnalyticsOverviewResponse, TopProductResponse, MonthlyResponse
+from app.schemas.analytics import AnalyticsOverviewResponse, TopProductResponse, MonthlyResponse, \
+    ReturnsOverviewResponse
 from app.services.analytics_service import AnalyticsService
 
 router = APIRouter(prefix="/analytics")
@@ -31,3 +32,10 @@ def get_monthly_sales(
         analytics_service: AnalyticsService = Depends(get_analytics_service)
 ):
     return analytics_service.get_monthly_sales(user_id=current_user.id)
+
+@router.get("/returns", response_model=ReturnsOverviewResponse)
+def get_returns_overview(
+        current_user: User = Depends(get_current_user),
+        analytics_service: AnalyticsService = Depends(get_analytics_service)
+):
+    return analytics_service.get_returns_overview(current_user.id)
