@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, date
 from decimal import Decimal
 
 from pydantic import BaseModel
@@ -45,7 +45,17 @@ class OfferNamePerformanceResponse(BaseModel):
 
     return_rate: Decimal
 
-    first_sale_date: datetime
-    last_sale_date: datetime
+    first_sale_date: date
+    last_sale_date: date
+
     days_active: int
     sales_per_day : Decimal
+
+class OfferPricePerformanceResponse(BaseModel):
+
+    price: Decimal
+    sold_quantity: int
+    returns_quantity: int
+
+    revenue: Decimal
+    return_rate: Decimal

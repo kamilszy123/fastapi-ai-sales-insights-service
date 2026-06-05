@@ -113,3 +113,27 @@ class AnalyticsRepository:
 
         return self.db.execute(query).all()
 
+    def get_offer_price_performance(self, user_id: int, offer_id: str):
+        query = (
+            select(
+                OrderItem.price.label("price"),
+                func.sum(OrderItem.quantity).label("sold_quantity"),
+                func.sum(OrderItem.returns_quantity).label("returns_quantity"),
+                func.sum(OrderItem.quantity * OrderItem.price).label("revenue"),
+            )
+            .join(
+                Order,
+                OrderItem.order_id == Order.id
+            )
+            .where(
+                Order.user_id == user_id,
+                OrderItem.external_offer_id == offer_id
+            )
+            .group_by(
+                OrderItem.price
+            )
+            .order_by(
+                func.sum(OrderItem.quantity * OrderItem.price).desc()
+            )
+        )
+        return self.db.execute(query).all()

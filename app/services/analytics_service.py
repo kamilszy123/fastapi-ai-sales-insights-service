@@ -2,7 +2,7 @@ from decimal import Decimal
 
 from app.repositories.analytics_repository import AnalyticsRepository
 from app.schemas.analytics import AnalyticsOverviewResponse, TopProductResponse, MonthlyResponse, \
-    ReturnsOverviewResponse, TopReturnedProductsResponse, OfferNamePerformanceResponse
+    ReturnsOverviewResponse, TopReturnedProductsResponse, OfferNamePerformanceResponse, OfferPricePerformanceResponse
 
 
 class AnalyticsService:
@@ -75,7 +75,7 @@ class AnalyticsService:
             )
         return result
 
-    def get_offer_name_stats(self, user_id: int, offer_id: str):
+    def get_offer_name_performance(self, user_id: int, offer_id: str) -> list[OfferNamePerformanceResponse]:
         names = self.analytics_repository.get_offer_name_performance(user_id, offer_id)
         result = []
         for row in names:
@@ -88,8 +88,8 @@ class AnalyticsService:
                 return_rate = (
                         Decimal(row.returns_quantity)
                         / Decimal(row.sold_quantity)
-                        * Decimal("100")).quantize(Decimal("0.01")
-                )
+                        * Decimal("100")).quantize(Decimal("0.01"))
+
             result.append(
                 OfferNamePerformanceResponse(
                     name=row.name,
@@ -98,8 +98,8 @@ class AnalyticsService:
                     revenue=row.revenue,
                     average_price=row.average_price.quantize(Decimal("0.01")),
                     return_rate=return_rate,
-                    first_sale_date=row.first_sale_date,
-                    last_sale_date=row.last_sale_date,
+                    first_sale_date=row.first_sale_date.date(),
+                    last_sale_date=row.last_sale_date.date(),
                     days_active=days_active,
                     sales_per_day=sales_per_day
                 )
@@ -107,4 +107,25 @@ class AnalyticsService:
 
         return result
 
+    def get_offer_price_performance(self, user_id: int, offer_id: str) -> list[OfferPricePerformanceResponse]:
+        prices = self.analytics_repository.get_offer_price_performance(user_id, offer_id)
+        results = []
+        for row in prices:
 
+            return_rate = Decimal("0.00")
+            if row.sold_quantity > 0:
+                return_rate = (
+                        Decimal(row.returns_quantity)
+                        / Decimal(row.sold_quantity)
+                        * Decimal("100")).quantize(Decimal("0.01"))
+
+            results.append(
+                OfferPricePerformanceResponse(
+                    price=row.price,
+                    sold_quantity=row.sold_quantity,
+                    returns_quantity=row.returns_quantity,
+                    revenue=row.revenue,
+                    return_rate=return_rate
+                )
+            )
+        return results
