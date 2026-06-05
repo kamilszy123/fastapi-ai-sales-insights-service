@@ -30,7 +30,7 @@ class AnalyticsRepository:
         query = (
             select(
                 OrderItem.name.label("name"),
-                func.sum(OrderItem.quantity).label("quantity_sold"),
+                func.sum(OrderItem.quantity).label("sold_quantity"),
                 func.sum(OrderItem.returns_quantity).label("returns_quantity"),
                 func.sum(OrderItem.price * OrderItem.quantity).label("revenue"),
             )
@@ -67,23 +67,49 @@ class AnalyticsRepository:
         return self.db.execute(query).all()
 
     def get_top_returned_products(self, user_id: int, limit: int = 5):
-            query = (
-                select(
-                    OrderItem.name.label("name"),
-                    func.sum(OrderItem.quantity).label("quantity_sold"),
-                    func.sum(OrderItem.returns_quantity).label("returns_quantity")
-                )
-                .join(Order, OrderItem.order_id == Order.id)
-                .where(Order.user_id == user_id)
-                .group_by(OrderItem.name)
-                .having(
-                    func.sum(OrderItem.returns_quantity)>0
-                )
-                .order_by(
-                    func.sum(OrderItem.returns_quantity)
-                    .desc()
-                )
-                .limit(limit)
+        query = (
+            select(
+                OrderItem.name.label("name"),
+                func.sum(OrderItem.quantity).label("sold_quantity"),
+                func.sum(OrderItem.returns_quantity).label("returns_quantity")
             )
-            return self.db.execute(query).all()
+            .join(Order, OrderItem.order_id == Order.id)
+            .where(Order.user_id == user_id)
+            .group_by(OrderItem.name)
+            .having(
+                func.sum(OrderItem.returns_quantity) > 0
+            )
+            .order_by(
+                func.sum(OrderItem.returns_quantity)
+                .desc()
+            )
+            .limit(limit)
+        )
+        return self.db.execute(query).all()
+
+    def get_offer_name_performance(self, user_id: int, offer_id: str):
+        query = (
+            select(
+                OrderItem.name.label("name"),
+                func.sum(OrderItem.quantity).label("sold_quantity"),
+                func.sum(OrderItem.returns_quantity).label("returns_quantity"),
+                func.sum(
+                    OrderItem.quantity * OrderItem.price
+                ).label("revenue"),
+                func.avg(OrderItem.price).label("average_price"),
+                func.min(Order.order_date).label("first_sale_date"),
+                func.max(Order.order_date).label("last_sale_date"),
+            )
+            .join(Order, OrderItem.order_id == Order.id)
+            .where(
+                Order.user_id == user_id,
+                OrderItem.external_offer_id == offer_id,
+            )
+            .group_by(OrderItem.name)
+            .order_by(
+                func.min(Order.order_date)
+            )
+        )
+
+        return self.db.execute(query).all()
 

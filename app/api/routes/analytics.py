@@ -4,7 +4,7 @@ from app.core.dependencies import get_analytics_service
 from app.core.security import get_current_user
 from app.models import User
 from app.schemas.analytics import AnalyticsOverviewResponse, TopProductResponse, MonthlyResponse, \
-    ReturnsOverviewResponse, TopReturnedProductsResponse
+    ReturnsOverviewResponse, TopReturnedProductsResponse, OfferNamePerformanceResponse
 from app.services.analytics_service import AnalyticsService
 
 router = APIRouter(prefix="/analytics")
@@ -49,3 +49,11 @@ def get_top_returned_products(
         analytics_service: AnalyticsService = Depends(get_analytics_service)
 ):
     return analytics_service.get_top_returned_products(current_user.id, limit)
+
+@router.get("/offers/{offer_id}/performance", response_model=list[OfferNamePerformanceResponse])
+def get_offer_name_performance(
+        offer_id : str,
+        current_user: User = Depends(get_current_user),
+        analytics_service: AnalyticsService = Depends(get_analytics_service)
+):
+    return analytics_service.get_offer_name_stats(current_user.id, offer_id)
