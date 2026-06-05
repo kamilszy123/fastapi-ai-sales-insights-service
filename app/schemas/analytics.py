@@ -27,3 +27,10 @@ class ReturnsOverviewResponse(BaseModel):
     products_sold: int
     returns_count: int
     return_rate: Decimal
+
+class TopReturnedProductsResponse(BaseModel):
+    name: str
+    quantity_sold: int
+    returns_quantity: int
+    return_rate: Decimal
+

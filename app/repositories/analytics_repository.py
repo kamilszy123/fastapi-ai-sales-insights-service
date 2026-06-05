@@ -65,3 +65,25 @@ class AnalyticsRepository:
         )
 
         return self.db.execute(query).all()
+
+    def get_top_returned_products(self, user_id: int, limit: int = 5):
+            query = (
+                select(
+                    OrderItem.name.label("name"),
+                    func.sum(OrderItem.quantity).label("quantity_sold"),
+                    func.sum(OrderItem.returns_quantity).label("returns_quantity")
+                )
+                .join(Order, OrderItem.order_id == Order.id)
+                .where(Order.user_id == user_id)
+                .group_by(OrderItem.name)
+                .having(
+                    func.sum(OrderItem.returns_quantity)>0
+                )
+                .order_by(
+                    func.sum(OrderItem.returns_quantity)
+                    .desc()
+                )
+                .limit(limit)
+            )
+            return self.db.execute(query).all()
+
