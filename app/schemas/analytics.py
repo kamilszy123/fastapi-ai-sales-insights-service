@@ -17,7 +17,7 @@ class TopProductResponse(BaseModel):
     returns_quantity: int
     revenue: Decimal
 
-class MonthlyResponse(BaseModel):
+class MonthlySalesResponse(BaseModel):
     month: datetime
     orders_count: int
     revenue: Decimal

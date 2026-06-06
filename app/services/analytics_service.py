@@ -1,7 +1,7 @@
 from decimal import Decimal
 
 from app.repositories.analytics_repository import AnalyticsRepository
-from app.schemas.analytics import AnalyticsOverviewResponse, TopProductResponse, MonthlyResponse, \
+from app.schemas.analytics import AnalyticsOverviewResponse, TopProductResponse, MonthlySalesResponse, \
     ReturnsOverviewResponse, TopReturnedProductsResponse, OfferNamePerformanceResponse, OfferPricePerformanceResponse
 
 
@@ -29,10 +29,10 @@ class AnalyticsService:
             for row in products
         ]
 
-    def get_monthly_sales(self, user_id: int) -> list[MonthlyResponse]:
+    def get_monthly_sales(self, user_id: int) -> list[MonthlySalesResponse]:
         monthly_sales = self.analytics_repository.get_monthly_sales(user_id)
         return [
-            MonthlyResponse(
+            MonthlySalesResponse(
                 month=row.month,
                 orders_count=row.orders_count,
                 revenue=row.revenue,

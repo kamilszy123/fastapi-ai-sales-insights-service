@@ -9,3 +9,4 @@ python-jose
 bcrypt
 email-validator
 python-multipart
+openai==2.41.0

@@ -12,6 +12,12 @@ class Settings(BaseSettings):
     algorithm: str
     access_token_expire_minutes: int
 
+    openai_api_key: str
+
+    openai_model: str = "gpt-4.1-nano"
+    openai_timeout: int = 30
+    openai_max_retries: int = 3
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8"

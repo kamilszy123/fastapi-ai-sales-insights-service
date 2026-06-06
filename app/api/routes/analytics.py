@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends
 from app.core.dependencies import get_analytics_service
 from app.core.security import get_current_user
 from app.models import User
-from app.schemas.analytics import AnalyticsOverviewResponse, TopProductResponse, MonthlyResponse, \
+from app.schemas.analytics import AnalyticsOverviewResponse, TopProductResponse, MonthlySalesResponse, \
     ReturnsOverviewResponse, TopReturnedProductsResponse, OfferNamePerformanceResponse, OfferPricePerformanceResponse
 from app.services.analytics_service import AnalyticsService
 
@@ -27,7 +27,7 @@ def get_top_products(
     return analytics_service.get_top_products(user_id=current_user.id, limit=limit)
 
 
-@router.get("/monthly-sales", response_model=list[MonthlyResponse])
+@router.get("/monthly-sales", response_model=list[MonthlySalesResponse])
 def get_monthly_sales(
         current_user: User = Depends(get_current_user),
         analytics_service: AnalyticsService = Depends(get_analytics_service)
@@ -42,6 +42,7 @@ def get_returns_overview(
 ):
     return analytics_service.get_returns_overview(current_user.id)
 
+
 @router.get("/top-returned", response_model=list[TopReturnedProductsResponse])
 def get_top_returned_products(
         limit: int = 5,
@@ -50,9 +51,10 @@ def get_top_returned_products(
 ):
     return analytics_service.get_top_returned_products(current_user.id, limit)
 
+
 @router.get("/offers/{offer_id}/name-performance", response_model=list[OfferNamePerformanceResponse])
 def get_offer_name_performance(
-        offer_id : str,
+        offer_id: str,
         current_user: User = Depends(get_current_user),
         analytics_service: AnalyticsService = Depends(get_analytics_service)
 ):
@@ -61,7 +63,7 @@ def get_offer_name_performance(
 
 @router.get("/offers/{offer_id}/price-performance", response_model=list[OfferPricePerformanceResponse])
 def get_offer_price_performance(
-        offer_id : str,
+        offer_id: str,
         current_user: User = Depends(get_current_user),
         analytics_service: AnalyticsService = Depends(get_analytics_service)
 ):
