@@ -38,6 +38,10 @@ Rules:
 - Do not infer causes.
 - Do not speculate.
 
+Do not infer trends from incomplete periods.
+
+If data covers only a partial month, explicitly state that.
+
 Return ONLY valid JSON.
 
 Response format:

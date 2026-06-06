@@ -3,7 +3,7 @@ import json
 from openai import AsyncOpenAI
 
 from app.core.config import settings
-from app.schemas.ai import SalesAnalysisResult
+from app.schemas.ai import SalesAnalysisResult, SalesAnalysisResponse, AIUsage
 
 
 class OpenAIProvider:
@@ -17,7 +17,7 @@ class OpenAIProvider:
             system_prompt: str,
             user_prompt: str,
             max_output_tokens: int = 500,
-    ) -> SalesAnalysisResult:
+    ) -> SalesAnalysisResponse:
         response = await self.client.responses.create(
             model=settings.openai_model,
             input=[
@@ -37,4 +37,15 @@ class OpenAIProvider:
 
         parsed = json.loads(content)
 
-        return SalesAnalysisResult(**parsed)
+        analysis = SalesAnalysisResult(**parsed)
+
+        usage = AIUsage(
+            input_tokens=response.usage.input_tokens,
+            output_tokens=response.usage.output_tokens,
+            total_tokens=response.usage.total_tokens,
+            model=settings.openai_model
+        )
+        return SalesAnalysisResponse(
+            analysis=analysis,
+            usage=usage
+        )

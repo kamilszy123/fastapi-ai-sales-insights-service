@@ -7,3 +7,15 @@ class SalesAnalysisResult(BaseModel):
     return_analysis: list[str]
     risks: list[str]
     recommendations: list[str]
+
+
+class AIUsage(BaseModel):
+    input_tokens: int
+    output_tokens: int
+    total_tokens: int
+    model: str
+
+
+class SalesAnalysisResponse(BaseModel):
+    analysis: SalesAnalysisResult
+    usage: AIUsage
