@@ -5,6 +5,9 @@ from app.core.config import settings
 
 from app import models
 from app.core.exception_handlers import register_exception_handlers
+from app.core.logging_config import configure_logging
+
+configure_logging()
 
 app = FastAPI(title=settings.app_name)
 
