@@ -1,8 +1,7 @@
-import json
-
 from openai import AsyncOpenAI
 
 from app.core.config import settings
+from app.exceptions.ai_exceptions import AIProviderError
 from app.providers.ai_provider import AIProvider
 from app.schemas.ai import SalesAnalysisResult, SalesAnalysisResponse, AIUsage
 
@@ -19,7 +18,7 @@ class OpenAIProvider(AIProvider):
             user_prompt: str,
             max_output_tokens: int = 500,
     ) -> SalesAnalysisResponse:
-        response = await self.client.responses.create(
+        response = await self.client.responses.parse(
             model=settings.openai_model,
             input=[
                 {
@@ -31,14 +30,15 @@ class OpenAIProvider(AIProvider):
                     "content": user_prompt,
                 },
             ],
+            text_format=SalesAnalysisResult,
             max_output_tokens=max_output_tokens,
         )
 
-        content = response.output_text
-
-        parsed = json.loads(content)
-
-        analysis = SalesAnalysisResult(**parsed)
+        analysis = response.output_parsed
+        if analysis is None:
+            raise AIProviderError(
+                "OpenAI returned invalid structured response"
+            )
 
         usage = AIUsage(
             input_tokens=response.usage.input_tokens,

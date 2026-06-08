@@ -42,23 +42,4 @@ Do not infer trends from incomplete periods.
 
 If data covers only a partial month, explicitly state that.
 
-Return ONLY valid JSON.
-
-Response format:
-
-{
-  "executive_summary": "string",
-  "sales_insights": [
-    "string"
-  ],
-  "return_analysis": [
-    "string"
-  ],
-  "risks": [
-    "string"
-  ],
-  "recommendations": [
-    "string"
-  ]
-}
 """

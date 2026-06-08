@@ -1,6 +1,6 @@
 from app.prompts.sales_analysis_prompt import build_sales_analysis_prompt, build_system_prompt
 from app.providers.ai_provider import AIProvider
-from app.schemas.ai import SalesAnalysisResult
+from app.schemas.ai import SalesAnalysisResponse
 from app.services.analytics_service import AnalyticsService
 
 TOP_PRODUCTS_LIMIT = 5
@@ -18,7 +18,7 @@ class AIAnalysisService:
     async def analyze_sales(
             self,
             user_id: int,
-    ) -> SalesAnalysisResult:
+    ) -> SalesAnalysisResponse:
         overview = self.analytics_service.get_overview(user_id)
 
         top_products = self.analytics_service.get_top_products(user_id=user_id, limit=TOP_PRODUCTS_LIMIT)
