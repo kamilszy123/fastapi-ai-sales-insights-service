@@ -15,17 +15,10 @@ def register(
         data: RegisterRequest,
         user_service: UserService = Depends(get_user_service)
 ):
-    try:
-        return user_service.create_user(
-            email=data.email,
-            password=data.password,
-        )
-
-    except UserAlreadyExistsError as error:
-        raise HTTPException(
-            status_code=400,
-            detail=str(error)
-        )
+    return user_service.create_user(
+        email=data.email,
+        password=data.password,
+    )
 
 
 @router.post("/login", response_model=TokenResponse)
@@ -33,20 +26,15 @@ def login(
         data: LoginRequest,
         user_service: UserService = Depends(get_user_service)
 ):
-    try:
-        token = user_service.login(
-            email=data.email,
-            password=data.password
-        )
-        return TokenResponse(
-            access_token=token,
-            token_type="bearer"
-        )
-    except InvalidCredentialsError as error:
-        raise HTTPException(
-            status_code=401,
-            detail=str(error),
-        )
+    token = user_service.login(
+        email=data.email,
+        password=data.password
+    )
+    return TokenResponse(
+        access_token=token,
+        token_type="bearer"
+    )
+
 
 @router.get("/me", response_model=UserResponse)
 def get_me(
