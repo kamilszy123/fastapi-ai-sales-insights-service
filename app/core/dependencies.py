@@ -4,6 +4,7 @@ from fastapi.params import Depends
 from sqlalchemy.orm import Session
 
 from app.db.session import SessionLocal
+from app.providers.ai_provider import AIProvider
 from app.providers.openai_provider import OpenAIProvider
 from app.repositories.analytics_repository import AnalyticsRepository
 from app.services.ai_analysis_service import AIAnalysisService
@@ -23,10 +24,6 @@ def get_db() -> Generator[Session]:
 
     finally:
         db.close()
-
-
-def get_openai_provider() -> OpenAIProvider:
-    return OpenAIProvider()
 
 
 def get_analytics_repository(
@@ -67,13 +64,17 @@ def get_user_service(
     )
 
 
+def get_ai_provider() -> AIProvider:
+    return OpenAIProvider()
+
+
 def get_ai_analysis_service(
         analytics_service: AnalyticsService = Depends(get_analytics_service),
-        openai_provider: OpenAIProvider = Depends(get_openai_provider)
+        ai_provider: AIProvider = Depends(get_ai_provider)
 ) -> AIAnalysisService:
     return AIAnalysisService(
         analytics_service=analytics_service,
-        openai_provider=openai_provider
+        ai_provider=ai_provider
     )
 
 

@@ -3,10 +3,11 @@ import json
 from openai import AsyncOpenAI
 
 from app.core.config import settings
+from app.providers.ai_provider import AIProvider
 from app.schemas.ai import SalesAnalysisResult, SalesAnalysisResponse, AIUsage
 
 
-class OpenAIProvider:
+class OpenAIProvider(AIProvider):
     def __init__(self) -> None:
         self.client = AsyncOpenAI(
             api_key=settings.openai_api_key,
