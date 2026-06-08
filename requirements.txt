@@ -10,3 +10,4 @@ bcrypt
 email-validator
 python-multipart
 openai==2.41.0
+tenacity==9.1.4
