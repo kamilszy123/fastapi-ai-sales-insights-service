@@ -3,13 +3,15 @@ from unittest.mock import Mock, AsyncMock, patch
 import pytest
 
 from app.core.config import settings
+from app.exceptions.ai_exceptions import AIProviderError
 from app.providers.openai_provider import OpenAIProvider
 from app.schemas.ai import SalesAnalysisResult
+
 
 @patch("app.providers.openai_provider.AsyncOpenAI")
 @pytest.mark.asyncio
 async def test_analyze_sales_returns_structured_response(
-    mock_openai_client,
+        mock_openai_client,
 ):
     response = Mock()
 
@@ -63,4 +65,34 @@ async def test_analyze_sales_returns_structured_response(
         text_format=SalesAnalysisResult,
         max_output_tokens=500,
         timeout=settings.openai_timeout,
+    )
+
+
+@patch("app.providers.openai_provider.AsyncOpenAI")
+@pytest.mark.asyncio
+async def test_analyze_sales_raises_error_when_response_is_invalid(
+        mock_openai_client,
+):
+    response = Mock()
+
+    response.output_parsed = None
+
+    client_instance = Mock()
+
+    client_instance.responses.parse = AsyncMock(
+        return_value=response
+    )
+
+    mock_openai_client.return_value = client_instance
+
+    provider = OpenAIProvider()
+
+    with pytest.raises(AIProviderError) as exc:
+        await provider.analyze_sales(
+            system_prompt="system prompt",
+            user_prompt="user prompt",
+        )
+
+    assert str(exc.value) == (
+        "OpenAI returned invalid structured response"
     )
