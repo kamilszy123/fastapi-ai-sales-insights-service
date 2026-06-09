@@ -1,5 +1,8 @@
 from unittest.mock import Mock, AsyncMock, patch
 
+from openai import APIConnectionError
+
+import app.providers.openai_provider
 import pytest
 
 from app.core.config import settings
@@ -96,3 +99,42 @@ async def test_analyze_sales_raises_error_when_response_is_invalid(
     assert str(exc.value) == (
         "OpenAI returned invalid structured response"
     )
+
+@patch("app.providers.openai_provider.AsyncOpenAI")
+async def test_analyze_sales_retries_on_connection_error(
+        mock_openai_client
+):
+    response = Mock()
+    response.output_parsed = SalesAnalysisResult(
+        executive_summary="summary",
+        sales_insights=["insight"],
+        return_analysis=["return"],
+        risks=["risk"],
+        recommendations=["recommendation"],
+    )
+
+    response.usage = Mock()
+    response.usage.input_tokens = 100
+    response.usage.output_tokens = 50
+    response.usage.total_tokens = 150
+
+    client_instance = Mock()
+    client_instance.responses.parse = AsyncMock(
+        side_effect=[
+            APIConnectionError(request=Mock()),
+            APIConnectionError(request=Mock()),
+            response
+        ]
+    )
+
+    mock_openai_client.return_value = client_instance
+
+    provider = OpenAIProvider()
+
+    result = await provider.analyze_sales(
+        system_prompt="system prompt",
+        user_prompt="user prompt",
+    )
+
+    assert result.analysis == response.output_parsed
+    assert client_instance.responses.parse.await_count == 3
