@@ -11,11 +11,6 @@ def app():
 
 
 @pytest.fixture
-def client(app):
-    return TestClient(app)
-
-
-@pytest.fixture
 def exception_app(app):
     register_exception_handlers(app)
 
@@ -35,3 +30,15 @@ def exception_client_no_raise(
         exception_app,
         raise_server_exceptions=False,
     )
+
+
+@pytest.fixture
+def api_client():
+    from app.main import app
+
+    app.dependency_overrides = {}
+
+    with TestClient(app) as client:
+        yield client
+
+    app.dependency_overrides = {}
