@@ -6,11 +6,12 @@ from app.core.dependencies import get_import_service
 from app.core.security import get_current_user
 from app.models.user import User
 from app.parsers.allegro_csv_parser import AllegroCSVParser
+from app.schemas.imports import ImportJobResponse
 from app.services.import_service import ImportService
 
 router = APIRouter(prefix="/imports")
 
-@router.post('/')
+@router.post('/', response_model=ImportJobResponse)
 async def import_csv(
         file: UploadFile,
         current_user: User = Depends(get_current_user),
