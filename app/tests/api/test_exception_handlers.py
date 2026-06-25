@@ -1,4 +1,5 @@
 from app.exceptions.ai_exceptions import AIProviderError
+from app.exceptions.parser_exceptions import CSVValidationError
 from app.exceptions.user_exceptions import UserAlreadyExistsError, InvalidCredentialsError
 
 
@@ -35,6 +36,25 @@ def test_user_already_exists_handler(
 
     assert response.json() == {
         "detail": "User already exists"
+    }
+
+
+def test_csv_validation_error_handler(
+        exception_app,
+        exception_client,
+):
+    @exception_app.get("/test")
+    def test_route():
+        raise CSVValidationError(
+            "Missing required section: orders"
+        )
+
+    response = exception_client.get("/test")
+
+    assert response.status_code == 400
+
+    assert response.json() == {
+        "detail": "Missing required section: orders"
     }
 
 

@@ -5,6 +5,7 @@ from fastapi.responses import JSONResponse
 from openai import APIError
 
 from app.exceptions.ai_exceptions import AIProviderError
+from app.exceptions.parser_exceptions import CSVValidationError
 from app.exceptions.user_exceptions import UserAlreadyExistsError, InvalidCredentialsError
 
 logger = logging.getLogger(__name__)
@@ -36,6 +37,21 @@ def register_exception_handlers(
         )
         return JSONResponse(
             status_code=401,
+            content={
+                "detail": str(exc)
+            }
+        )
+
+    @app.exception_handler(CSVValidationError)
+    async def csv_validation_error_handler(
+            request: Request,
+            exc: CSVValidationError):
+        logger.warning(
+            "CSV validation failed: %s",
+            exc,
+        )
+        return JSONResponse(
+            status_code=400,
             content={
                 "detail": str(exc)
             }
