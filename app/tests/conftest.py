@@ -42,3 +42,22 @@ def api_client():
         yield client
 
     app.dependency_overrides = {}
+
+
+@pytest.fixture
+def db_session():
+    from sqlalchemy import create_engine
+    from sqlalchemy.orm import sessionmaker
+    import app.models  # noqa: F401 — registers all models with Base.metadata
+    from app.db.base import Base
+
+    engine = create_engine(
+        "sqlite:///:memory:",
+        connect_args={"check_same_thread": False},
+    )
+    Base.metadata.create_all(engine)
+    Session = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+    session = Session()
+    yield session
+    session.close()
+    engine.dispose()
