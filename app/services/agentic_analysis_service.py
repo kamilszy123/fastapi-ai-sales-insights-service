@@ -55,15 +55,13 @@ class AgenticAnalysisService:
         self,
         ai_provider: AIProvider,
         analytics_service: AnalyticsService,
-        user_id: int,
         max_iterations: int = 5,
     ) -> None:
         self.ai_provider = ai_provider
         self.analytics_service = analytics_service
-        self.user_id = user_id
         self.max_iterations = max_iterations
 
-    async def run(self, question: str) -> AgenticAnswer:
+    async def run(self, question: str, user_id: int) -> AgenticAnswer:
         messages: list[dict] = [
             {
                 "role": "system",
@@ -96,7 +94,7 @@ class AgenticAnalysisService:
                 try:
                     entry = _TOOL_DISPATCH[tc.name]
                     args = entry.args_model(**tc.arguments)
-                    output = entry.fn(args, self.analytics_service, self.user_id)
+                    output = entry.fn(args, self.analytics_service, user_id)
                 except Exception as exc:
                     output = {"error": str(exc)}
                 messages.append({

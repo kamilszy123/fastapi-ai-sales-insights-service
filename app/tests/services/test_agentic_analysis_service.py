@@ -100,10 +100,10 @@ async def test_run_returns_answer_and_tool_calls_log(db_session, analytics_servi
         TextResult(text="Widget A is your top product."),
     )
     service = AgenticAnalysisService(
-        ai_provider=provider, analytics_service=analytics_service, user_id=1
+        ai_provider=provider, analytics_service=analytics_service
     )
 
-    result = await service.run("What are my top products?")
+    result = await service.run("What are my top products?", user_id=1)
 
     assert isinstance(result, AgenticAnswer)
     assert result.answer == "Widget A is your top product."
@@ -128,11 +128,11 @@ async def test_run_raises_after_max_iterations(db_session, analytics_service):
     )
     service = AgenticAnalysisService(
         ai_provider=provider, analytics_service=analytics_service,
-        user_id=1, max_iterations=3,
+        max_iterations=3,
     )
 
     with pytest.raises(AIProviderError):
-        await service.run("question")
+        await service.run("question", user_id=1)
 
     assert provider.complete_with_tools.await_count == 3
 
@@ -149,10 +149,10 @@ async def test_run_captures_tool_exception_in_log_and_continues(db_session, anal
         TextResult(text="Done despite error."),
     )
     service = AgenticAnalysisService(
-        ai_provider=provider, analytics_service=analytics_service, user_id=1
+        ai_provider=provider, analytics_service=analytics_service
     )
 
-    result = await service.run("question")
+    result = await service.run("question", user_id=1)
 
     assert result.answer == "Done despite error."
     assert len(result.tool_calls) == 1
@@ -171,10 +171,10 @@ async def test_run_handles_unknown_tool_name(db_session, analytics_service):
         TextResult(text="Recovered."),
     )
     service = AgenticAnalysisService(
-        ai_provider=provider, analytics_service=analytics_service, user_id=1
+        ai_provider=provider, analytics_service=analytics_service
     )
 
-    result = await service.run("question")
+    result = await service.run("question", user_id=1)
 
     assert result.answer == "Recovered."
     assert "error" in result.tool_calls[0]["result"]
