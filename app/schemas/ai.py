@@ -1,4 +1,6 @@
-from pydantic import BaseModel
+from typing import Annotated, Literal
+
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class SalesAnalysisResult(BaseModel):
@@ -19,3 +21,29 @@ class AIUsage(BaseModel):
 class SalesAnalysisResponse(BaseModel):
     analysis: SalesAnalysisResult
     usage: AIUsage
+
+
+class ToolDefinition(BaseModel):
+    name: str
+    description: str
+    args_model: type[BaseModel]
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+
+
+class ToolCall(BaseModel):
+    call_id: str
+    name: str
+    arguments: dict
+
+
+class ToolCallsResult(BaseModel):
+    type: Literal["tool_calls"] = "tool_calls"
+    tool_calls: list[ToolCall]
+
+
+class TextResult(BaseModel):
+    type: Literal["text"] = "text"
+    text: str
+
+
+CompletionResult = Annotated[ToolCallsResult | TextResult, Field(discriminator="type")]
