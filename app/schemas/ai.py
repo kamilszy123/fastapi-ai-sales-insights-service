@@ -52,3 +52,7 @@ CompletionResult = Annotated[ToolCallsResult | TextResult, Field(discriminator="
 class AgenticAnswer(BaseModel):
     answer: str
     tool_calls: list[dict]
+
+
+class AskQuestionRequest(BaseModel):
+    question: str

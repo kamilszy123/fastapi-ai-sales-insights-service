@@ -7,6 +7,7 @@ from app.db.session import SessionLocal
 from app.providers.ai_provider import AIProvider
 from app.providers.openai_provider import OpenAIProvider
 from app.repositories.analytics_repository import AnalyticsRepository
+from app.services.agentic_analysis_service import AgenticAnalysisService
 from app.services.ai_analysis_service import AIAnalysisService
 from app.services.analytics_service import AnalyticsService
 from app.services.auth_service import AuthService
@@ -75,6 +76,16 @@ def get_ai_analysis_service(
     return AIAnalysisService(
         analytics_service=analytics_service,
         ai_provider=ai_provider
+    )
+
+
+def get_agentic_analysis_service(
+        ai_provider: AIProvider = Depends(get_ai_provider),
+        analytics_service: AnalyticsService = Depends(get_analytics_service),
+) -> AgenticAnalysisService:
+    return AgenticAnalysisService(
+        ai_provider=ai_provider,
+        analytics_service=analytics_service,
     )
 
 
