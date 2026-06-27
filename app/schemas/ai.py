@@ -47,3 +47,8 @@ class TextResult(BaseModel):
 
 
 CompletionResult = Annotated[ToolCallsResult | TextResult, Field(discriminator="type")]
+
+
+class AgenticAnswer(BaseModel):
+    answer: str
+    tool_calls: list[dict]
