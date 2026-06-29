@@ -30,6 +30,7 @@ modifying service layer code.
 * JWT authentication
 * Sales analytics and aggregations
 * AI-powered sales analysis
+* Agentic AI analysis (tool-calling loop with natural language Q&A)
 * Structured Outputs (OpenAI)
 * Automatic retry mechanism for transient AI failures
 * Provider-based AI integration architecture
@@ -232,12 +233,31 @@ AI sales analysis:
 POST /api/v1/ai/sales-analysis
 ```
 
+Agentic AI ask:
+
+```
+POST /api/v1/ai/ask
+
+Body: {"question": "..."}
+```
+
 ---
 
 ## AI INTEGRATION
 
 The application integrates with OpenAI API
-using Structured Outputs.
+using two complementary modes.
+
+**Single-shot structured analysis** (`POST /api/v1/ai/sales-analysis`):
+aggregates analytics data and sends it to the AI in one request,
+returning a structured report validated by a Pydantic schema.
+
+**Agentic natural language Q&A** (`POST /api/v1/ai/ask`):
+the model drives a tool-calling loop, calling analytics tools
+(overview, top products, monthly sales, top returned products)
+as needed and producing a natural language answer. The loop runs
+up to a configurable `max_iterations` limit; every tool call and
+its result are returned in the response for inspection.
 
 Behavior:
 
@@ -246,6 +266,8 @@ Behavior:
 * isolates AI communication behind provider abstraction
 * separates prompt generation from AI integration
 * returns structured business insights
+* tool-calling loop for natural language analytics queries
+* `user_id` enforced in Python — never exposed in tool schemas
 
 The provider architecture allows future integration
 with additional AI providers without modifying
@@ -299,8 +321,10 @@ business logic.
       │   ├── ai.py
       │   ├── analytics.py
       │   ├── auth.py
-      │   └── health.py
+      │   ├── health.py
+      │   └── imports.py
       ├── services
+      │   ├── agentic_analysis_service.py
       │   ├── ai_analysis_service.py
       │   ├── analytics_service.py
       │   ├── auth_service.py
@@ -311,14 +335,22 @@ business logic.
       ├── tests
       │   ├── api
       │   │   ├── test_ai_routes.py
-      │   │   └── test_exception_handlers.py
+      │   │   ├── test_exception_handlers.py
+      │   │   └── test_imports.py
       │   ├── core
       │   │   └── test_security.py
       │   ├── providers
+      │   │   ├── test_complete_with_tools.py
       │   │   └── test_openai_provider.py
       │   ├── services
-      │   │   └── test_ai_analysis_service.py
+      │   │   ├── test_agentic_analysis_service.py
+      │   │   ├── test_ai_analysis_service.py
+      │   │   └── test_import_service.py
+      │   ├── tools
+      │   │   └── test_analytics_tools.py
       │   └── conftest.py
+      ├── tools
+      │   └── analytics_tools.py
       ├── utils
       │   └── converters.py
       └── main.py
@@ -326,6 +358,8 @@ business logic.
 ---
 
 ## AI ARCHITECTURE
+
+Single-shot analysis:
 
       Sales Analysis Request
               ↓
@@ -340,6 +374,20 @@ business logic.
       Structured Output (Pydantic Schema)
               ↓
       SalesAnalysisResponse
+
+Agentic ask:
+
+      Agentic Ask Request
+              ↓
+      AgenticAnalysisService (tool-calling loop)
+              ↓
+      AIProvider.complete_with_tools
+              ↓
+      OpenAIProvider → OpenAI Responses API
+              ↓
+      ToolCallsResult → analytics_tools.py → AnalyticsService
+              ↓  (repeat until TextResult or max_iterations)
+      AgenticAnswer (text + tool_calls log)
 
 ---
 
@@ -383,7 +431,11 @@ pytest
 Includes:
 
 * service tests
+* agentic service loop tests
+* import service tests
 * OpenAI provider tests
+* complete_with_tools provider tests
+* tool layer tests (real SQLite)
 * retry mechanism tests
 * exception handler tests
 * authentication tests
@@ -436,6 +488,28 @@ summary,1,0
 6. Response is validated using Pydantic schemas
 
 7. API returns business recommendations and analysis
+
+Alternatively, POST /api/v1/ai/ask with a natural language question;
+the AI drives a tool-calling loop over the analytics data and returns
+a direct answer.
+
+---
+
+## SAMPLE DATA
+
+A sample CSV file with fake orders is provided for manual testing:
+
+```
+sample_data/orders_sample.csv
+```
+
+Use it to test the import endpoint without real sales data:
+
+```
+POST /api/v1/imports
+Content-Type: multipart/form-data
+Field: file  →  sample_data/orders_sample.csv
+```
 
 ---
 
