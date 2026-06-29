@@ -1,0 +1,306 @@
+Type,OrderId,OrderDate,SellerStatus,PaymentStatus,TotalToPayAmount,TotalToPayCurrency,TotalPaidAmount,TotalPaidCurrency
+order,aaaaaa-bbbbbb-cccccc-12345-123456,2026-01-01T01:00:00.000Z,NEW,PAID,100.00,PLN,100.00,PLN
+order,ord-00001-aaa-bbb-ccc-000001,2025-01-06T09:07:00.000Z,SENT,PAID,281.00,PLN,281.00,PLN
+order,ord-00002-aaa-bbb-ccc-000002,2025-01-11T10:14:00.000Z,READY_FOR_PICKUP,PAID,610.00,PLN,610.00,PLN
+order,ord-00003-aaa-bbb-ccc-000003,2025-01-16T11:21:00.000Z,PICKED_UP,WAITING_FOR_PAYMENT,216.00,PLN,0.00,PLN
+order,ord-00004-aaa-bbb-ccc-000004,2025-01-21T12:28:00.000Z,CANCELLED,REFUNDED,295.00,PLN,295.00,PLN
+order,ord-00005-aaa-bbb-ccc-000005,2025-01-26T13:35:00.000Z,RETURNED,PAID,1237.00,PLN,1237.00,PLN
+order,ord-00006-aaa-bbb-ccc-000006,2025-01-31T14:42:00.000Z,NEW,PAID,279.00,PLN,279.00,PLN
+order,ord-00007-aaa-bbb-ccc-000007,2025-02-05T15:49:00.000Z,SENT,PAID,577.00,PLN,577.00,PLN
+order,ord-00008-aaa-bbb-ccc-000008,2025-02-10T16:56:00.000Z,READY_FOR_PICKUP,WAITING_FOR_PAYMENT,1090.00,PLN,0.00,PLN
+order,ord-00009-aaa-bbb-ccc-000009,2025-02-15T17:03:00.000Z,PICKED_UP,REFUNDED,264.00,PLN,264.00,PLN
+order,ord-00010-aaa-bbb-ccc-000010,2025-02-20T18:10:00.000Z,CANCELLED,PAID,1203.00,PLN,1203.00,PLN
+order,ord-00011-aaa-bbb-ccc-000011,2025-02-25T19:17:00.000Z,RETURNED,PAID,1341.00,PLN,1341.00,PLN
+order,ord-00012-aaa-bbb-ccc-000012,2025-03-02T08:24:00.000Z,NEW,PAID,171.00,PLN,171.00,PLN
+order,ord-00013-aaa-bbb-ccc-000013,2025-03-07T09:31:00.000Z,SENT,WAITING_FOR_PAYMENT,1061.00,PLN,0.00,PLN
+order,ord-00014-aaa-bbb-ccc-000014,2025-03-12T10:38:00.000Z,READY_FOR_PICKUP,REFUNDED,1858.00,PLN,1858.00,PLN
+order,ord-00015-aaa-bbb-ccc-000015,2025-03-17T11:45:00.000Z,PICKED_UP,PAID,840.00,PLN,840.00,PLN
+order,ord-00016-aaa-bbb-ccc-000016,2025-03-22T12:52:00.000Z,CANCELLED,PAID,763.00,PLN,763.00,PLN
+order,ord-00017-aaa-bbb-ccc-000017,2025-03-27T13:59:00.000Z,RETURNED,PAID,1501.00,PLN,1501.00,PLN
+order,ord-00018-aaa-bbb-ccc-000018,2025-04-01T14:06:00.000Z,NEW,WAITING_FOR_PAYMENT,747.00,PLN,0.00,PLN
+order,ord-00019-aaa-bbb-ccc-000019,2025-04-06T15:13:00.000Z,SENT,REFUNDED,1072.00,PLN,1072.00,PLN
+order,ord-00020-aaa-bbb-ccc-000020,2025-04-11T16:20:00.000Z,READY_FOR_PICKUP,PAID,601.00,PLN,601.00,PLN
+order,ord-00021-aaa-bbb-ccc-000021,2025-04-16T17:27:00.000Z,PICKED_UP,PAID,576.00,PLN,576.00,PLN
+order,ord-00022-aaa-bbb-ccc-000022,2025-04-21T18:34:00.000Z,CANCELLED,PAID,300.00,PLN,300.00,PLN
+order,ord-00023-aaa-bbb-ccc-000023,2025-04-26T19:41:00.000Z,RETURNED,WAITING_FOR_PAYMENT,438.00,PLN,0.00,PLN
+order,ord-00024-aaa-bbb-ccc-000024,2025-05-01T08:48:00.000Z,NEW,REFUNDED,42.00,PLN,42.00,PLN
+order,ord-00025-aaa-bbb-ccc-000025,2025-05-06T09:55:00.000Z,SENT,PAID,416.00,PLN,416.00,PLN
+order,ord-00026-aaa-bbb-ccc-000026,2025-05-11T10:02:00.000Z,READY_FOR_PICKUP,PAID,826.00,PLN,826.00,PLN
+order,ord-00027-aaa-bbb-ccc-000027,2025-05-16T11:09:00.000Z,PICKED_UP,PAID,324.00,PLN,324.00,PLN
+order,ord-00028-aaa-bbb-ccc-000028,2025-05-21T12:16:00.000Z,CANCELLED,WAITING_FOR_PAYMENT,376.00,PLN,0.00,PLN
+order,ord-00029-aaa-bbb-ccc-000029,2025-05-26T13:23:00.000Z,RETURNED,REFUNDED,1480.00,PLN,1480.00,PLN
+order,ord-00030-aaa-bbb-ccc-000030,2025-05-31T14:30:00.000Z,NEW,PAID,360.00,PLN,360.00,PLN
+order,ord-00031-aaa-bbb-ccc-000031,2025-06-05T15:37:00.000Z,SENT,PAID,712.00,PLN,712.00,PLN
+order,ord-00032-aaa-bbb-ccc-000032,2025-06-10T16:44:00.000Z,READY_FOR_PICKUP,PAID,1252.00,PLN,1252.00,PLN
+order,ord-00033-aaa-bbb-ccc-000033,2025-06-15T17:51:00.000Z,PICKED_UP,WAITING_FOR_PAYMENT,318.00,PLN,0.00,PLN
+order,ord-00034-aaa-bbb-ccc-000034,2025-06-20T18:58:00.000Z,CANCELLED,REFUNDED,1392.00,PLN,1392.00,PLN
+order,ord-00035-aaa-bbb-ccc-000035,2025-06-25T19:05:00.000Z,RETURNED,PAID,1530.00,PLN,1530.00,PLN
+order,ord-00036-aaa-bbb-ccc-000036,2025-06-30T08:12:00.000Z,NEW,PAID,198.00,PLN,198.00,PLN
+order,ord-00037-aaa-bbb-ccc-000037,2025-07-05T09:19:00.000Z,SENT,PAID,1196.00,PLN,1196.00,PLN
+order,ord-00038-aaa-bbb-ccc-000038,2025-07-10T10:26:00.000Z,READY_FOR_PICKUP,WAITING_FOR_PAYMENT,1789.00,PLN,0.00,PLN
+order,ord-00039-aaa-bbb-ccc-000039,2025-07-15T11:33:00.000Z,PICKED_UP,REFUNDED,948.00,PLN,948.00,PLN
+order,ord-00040-aaa-bbb-ccc-000040,2025-07-20T12:40:00.000Z,CANCELLED,PAID,844.00,PLN,844.00,PLN
+order,ord-00041-aaa-bbb-ccc-000041,2025-07-25T13:47:00.000Z,RETURNED,PAID,889.00,PLN,889.00,PLN
+order,ord-00042-aaa-bbb-ccc-000042,2025-07-30T14:54:00.000Z,NEW,PAID,828.00,PLN,828.00,PLN
+order,ord-00043-aaa-bbb-ccc-000043,2025-08-04T15:01:00.000Z,SENT,WAITING_FOR_PAYMENT,1207.00,PLN,0.00,PLN
+order,ord-00044-aaa-bbb-ccc-000044,2025-08-09T16:08:00.000Z,READY_FOR_PICKUP,REFUNDED,478.00,PLN,478.00,PLN
+order,ord-00045-aaa-bbb-ccc-000045,2025-08-14T17:15:00.000Z,PICKED_UP,PAID,60.00,PLN,60.00,PLN
+order,ord-00046-aaa-bbb-ccc-000046,2025-08-19T18:22:00.000Z,CANCELLED,PAID,489.00,PLN,489.00,PLN
+order,ord-00047-aaa-bbb-ccc-000047,2025-08-24T19:29:00.000Z,RETURNED,PAID,627.00,PLN,627.00,PLN
+order,ord-00048-aaa-bbb-ccc-000048,2025-08-29T08:36:00.000Z,NEW,WAITING_FOR_PAYMENT,69.00,PLN,0.00,PLN
+order,ord-00049-aaa-bbb-ccc-000049,2025-09-03T09:43:00.000Z,SENT,REFUNDED,551.00,PLN,551.00,PLN
+order,ord-00050-aaa-bbb-ccc-000050,2025-09-08T10:50:00.000Z,READY_FOR_PICKUP,PAID,1042.00,PLN,1042.00,PLN
+order,ord-00051-aaa-bbb-ccc-000051,2025-09-13T11:57:00.000Z,PICKED_UP,PAID,432.00,PLN,432.00,PLN
+order,ord-00052-aaa-bbb-ccc-000052,2025-09-18T12:04:00.000Z,CANCELLED,PAID,457.00,PLN,457.00,PLN
+order,ord-00053-aaa-bbb-ccc-000053,2025-09-23T13:11:00.000Z,RETURNED,WAITING_FOR_PAYMENT,1723.00,PLN,0.00,PLN
+order,ord-00054-aaa-bbb-ccc-000054,2025-09-28T14:18:00.000Z,NEW,REFUNDED,441.00,PLN,441.00,PLN
+order,ord-00055-aaa-bbb-ccc-000055,2025-10-03T15:25:00.000Z,SENT,PAID,847.00,PLN,847.00,PLN
+order,ord-00056-aaa-bbb-ccc-000056,2025-10-08T16:32:00.000Z,READY_FOR_PICKUP,PAID,1414.00,PLN,1414.00,PLN
+order,ord-00057-aaa-bbb-ccc-000057,2025-10-13T17:39:00.000Z,PICKED_UP,PAID,372.00,PLN,372.00,PLN
+order,ord-00058-aaa-bbb-ccc-000058,2025-10-18T18:46:00.000Z,CANCELLED,WAITING_FOR_PAYMENT,1581.00,PLN,0.00,PLN
+order,ord-00059-aaa-bbb-ccc-000059,2025-10-23T19:53:00.000Z,RETURNED,REFUNDED,1149.00,PLN,1149.00,PLN
+order,ord-00060-aaa-bbb-ccc-000060,2025-10-28T08:00:00.000Z,NEW,PAID,225.00,PLN,225.00,PLN
+order,ord-00061-aaa-bbb-ccc-000061,2025-11-02T09:07:00.000Z,SENT,PAID,1331.00,PLN,1331.00,PLN
+order,ord-00062-aaa-bbb-ccc-000062,2025-11-07T10:14:00.000Z,READY_FOR_PICKUP,PAID,2005.00,PLN,2005.00,PLN
+order,ord-00063-aaa-bbb-ccc-000063,2025-11-12T11:21:00.000Z,PICKED_UP,WAITING_FOR_PAYMENT,1056.00,PLN,0.00,PLN
+order,ord-00064-aaa-bbb-ccc-000064,2025-11-17T12:28:00.000Z,CANCELLED,REFUNDED,355.00,PLN,355.00,PLN
+order,ord-00065-aaa-bbb-ccc-000065,2025-11-22T13:35:00.000Z,RETURNED,PAID,1132.00,PLN,1132.00,PLN
+order,ord-00066-aaa-bbb-ccc-000066,2025-11-27T14:42:00.000Z,NEW,PAID,54.00,PLN,54.00,PLN
+order,ord-00067-aaa-bbb-ccc-000067,2025-12-02T15:49:00.000Z,SENT,PAID,202.00,PLN,202.00,PLN
+order,ord-00068-aaa-bbb-ccc-000068,2025-12-07T16:56:00.000Z,READY_FOR_PICKUP,WAITING_FOR_PAYMENT,640.00,PLN,0.00,PLN
+order,ord-00069-aaa-bbb-ccc-000069,2025-12-12T17:03:00.000Z,PICKED_UP,REFUNDED,114.00,PLN,114.00,PLN
+order,ord-00070-aaa-bbb-ccc-000070,2025-12-17T18:10:00.000Z,CANCELLED,PAID,678.00,PLN,678.00,PLN
+order,ord-00071-aaa-bbb-ccc-000071,2025-12-22T19:17:00.000Z,RETURNED,PAID,816.00,PLN,816.00,PLN
+order,ord-00072-aaa-bbb-ccc-000072,2025-12-27T08:24:00.000Z,NEW,PAID,96.00,PLN,96.00,PLN
+order,ord-00073-aaa-bbb-ccc-000073,2026-01-01T09:31:00.000Z,SENT,WAITING_FOR_PAYMENT,686.00,PLN,0.00,PLN
+order,ord-00074-aaa-bbb-ccc-000074,2026-01-06T10:38:00.000Z,READY_FOR_PICKUP,REFUNDED,1258.00,PLN,1258.00,PLN
+order,ord-00075-aaa-bbb-ccc-000075,2026-01-11T11:45:00.000Z,PICKED_UP,PAID,540.00,PLN,540.00,PLN
+order,ord-00076-aaa-bbb-ccc-000076,2026-01-16T12:52:00.000Z,CANCELLED,PAID,538.00,PLN,538.00,PLN
+order,ord-00077-aaa-bbb-ccc-000077,2026-01-21T13:59:00.000Z,RETURNED,PAID,1966.00,PLN,1966.00,PLN
+order,ord-00078-aaa-bbb-ccc-000078,2026-01-26T14:06:00.000Z,NEW,WAITING_FOR_PAYMENT,522.00,PLN,0.00,PLN
+order,ord-00079-aaa-bbb-ccc-000079,2026-01-31T15:13:00.000Z,SENT,REFUNDED,982.00,PLN,982.00,PLN
+order,ord-00080-aaa-bbb-ccc-000080,2026-02-05T16:20:00.000Z,READY_FOR_PICKUP,PAID,1576.00,PLN,1576.00,PLN
+order,ord-00081-aaa-bbb-ccc-000081,2026-02-10T17:27:00.000Z,PICKED_UP,PAID,426.00,PLN,426.00,PLN
+order,ord-00082-aaa-bbb-ccc-000082,2026-02-15T18:34:00.000Z,CANCELLED,PAID,1770.00,PLN,1770.00,PLN
+order,ord-00083-aaa-bbb-ccc-000083,2026-02-20T19:41:00.000Z,RETURNED,WAITING_FOR_PAYMENT,1338.00,PLN,0.00,PLN
+order,ord-00084-aaa-bbb-ccc-000084,2026-02-25T08:48:00.000Z,NEW,REFUNDED,252.00,PLN,252.00,PLN
+order,ord-00085-aaa-bbb-ccc-000085,2026-03-02T09:55:00.000Z,SENT,PAID,611.00,PLN,611.00,PLN
+order,ord-00086-aaa-bbb-ccc-000086,2026-03-07T10:02:00.000Z,READY_FOR_PICKUP,PAID,1081.00,PLN,1081.00,PLN
+order,ord-00087-aaa-bbb-ccc-000087,2026-03-12T11:09:00.000Z,PICKED_UP,PAID,1164.00,PLN,1164.00,PLN
+order,ord-00088-aaa-bbb-ccc-000088,2026-03-17T12:16:00.000Z,CANCELLED,WAITING_FOR_PAYMENT,151.00,PLN,0.00,PLN
+order,ord-00089-aaa-bbb-ccc-000089,2026-03-22T13:23:00.000Z,RETURNED,REFUNDED,805.00,PLN,805.00,PLN
+order,ord-00090-aaa-bbb-ccc-000090,2026-03-27T14:30:00.000Z,NEW,PAID,135.00,PLN,135.00,PLN
+order,ord-00091-aaa-bbb-ccc-000091,2026-04-01T15:37:00.000Z,SENT,PAID,337.00,PLN,337.00,PLN
+order,ord-00092-aaa-bbb-ccc-000092,2026-04-06T16:44:00.000Z,READY_FOR_PICKUP,PAID,802.00,PLN,802.00,PLN
+order,ord-00093-aaa-bbb-ccc-000093,2026-04-11T17:51:00.000Z,PICKED_UP,WAITING_FOR_PAYMENT,168.00,PLN,0.00,PLN
+order,ord-00094-aaa-bbb-ccc-000094,2026-04-16T18:58:00.000Z,CANCELLED,REFUNDED,867.00,PLN,867.00,PLN
+order,ord-00095-aaa-bbb-ccc-000095,2026-04-21T19:05:00.000Z,RETURNED,PAID,1005.00,PLN,1005.00,PLN
+order,ord-00096-aaa-bbb-ccc-000096,2026-04-26T08:12:00.000Z,NEW,PAID,123.00,PLN,123.00,PLN
+order,ord-00097-aaa-bbb-ccc-000097,2026-05-01T09:19:00.000Z,SENT,PAID,821.00,PLN,821.00,PLN
+order,ord-00098-aaa-bbb-ccc-000098,2026-05-06T10:26:00.000Z,READY_FOR_PICKUP,WAITING_FOR_PAYMENT,1474.00,PLN,0.00,PLN
+order,ord-00099-aaa-bbb-ccc-000099,2026-05-11T11:33:00.000Z,PICKED_UP,REFUNDED,648.00,PLN,648.00,PLN
+
+Type,OrderId,LineItemId,OfferId,Name,Quantity,Price,Currency,ReturnsQuantity,Deposit,DepositCurrency
+lineItem,aaaaaa-bbbbbb-cccccc-12345-123456,aaaaa1-bbbbbb-cccccc-12345-123456,111111111,Produkt1,5,10.00,PLN,0,,
+lineItem,aaaaaa-bbbbbb-cccccc-12345-123456,aaaaa2-bbbbbb-cccccc-12345-123456,222222222,Produkt2,2,25.00,PLN,0,,
+lineItem,ord-00001-aaa-bbb-ccc-000001,li-00001-00-bbb-ccc-000001,222222222,Produkt2,2,28.00,PLN,0,,
+lineItem,ord-00001-aaa-bbb-ccc-000001,li-00001-01-bbb-ccc-000002,100003333,Laptop Dell Inspiron 15,3,75.00,PLN,0,,
+lineItem,ord-00002-aaa-bbb-ccc-000002,li-00002-00-bbb-ccc-000003,100001111,Słuchawki bezprzewodowe,3,41.00,PLN,0,,
+lineItem,ord-00002-aaa-bbb-ccc-000002,li-00002-01-bbb-ccc-000004,100004444,Kurtka zimowa damska,4,88.00,PLN,0,,
+lineItem,ord-00002-aaa-bbb-ccc-000002,li-00002-02-bbb-ccc-000005,100007777,Odkurzacz Dyson V11,1,135.00,PLN,0,,
+lineItem,ord-00003-aaa-bbb-ccc-000003,li-00003-00-bbb-ccc-000006,100002222,Smartfon Samsung Galaxy A54,4,54.00,PLN,0,,
+lineItem,ord-00004-aaa-bbb-ccc-000004,li-00004-00-bbb-ccc-000007,100003333,Laptop Dell Inspiron 15,1,67.00,PLN,0,,
+lineItem,ord-00004-aaa-bbb-ccc-000004,li-00004-01-bbb-ccc-000008,100006666,Ekspres do kawy DeLonghi,2,114.00,PLN,0,,
+lineItem,ord-00005-aaa-bbb-ccc-000005,li-00005-00-bbb-ccc-000009,100004444,Kurtka zimowa damska,2,80.00,PLN,0,,
+lineItem,ord-00005-aaa-bbb-ccc-000005,li-00005-01-bbb-ccc-000010,100007777,Odkurzacz Dyson V11,3,127.00,PLN,0,,
+lineItem,ord-00005-aaa-bbb-ccc-000005,li-00005-02-bbb-ccc-000011,100010001,Bluza z kapturem Adidas,4,174.00,PLN,0,,
+lineItem,ord-00006-aaa-bbb-ccc-000006,li-00006-00-bbb-ccc-000012,100005555,Buty sportowe Nike Air,3,93.00,PLN,0,,
+lineItem,ord-00007-aaa-bbb-ccc-000007,li-00007-00-bbb-ccc-000013,100006666,Ekspres do kawy DeLonghi,4,106.00,PLN,0,,
+lineItem,ord-00007-aaa-bbb-ccc-000007,li-00007-01-bbb-ccc-000014,100009999,Tablet Apple iPad 10,1,153.00,PLN,0,,
+lineItem,ord-00008-aaa-bbb-ccc-000008,li-00008-00-bbb-ccc-000015,100007777,Odkurzacz Dyson V11,1,119.00,PLN,0,,
+lineItem,ord-00008-aaa-bbb-ccc-000008,li-00008-01-bbb-ccc-000016,100010001,Bluza z kapturem Adidas,2,166.00,PLN,0,,
+lineItem,ord-00008-aaa-bbb-ccc-000008,li-00008-02-bbb-ccc-000017,100010004,Rower górski Kross,3,213.00,PLN,0,,
+lineItem,ord-00009-aaa-bbb-ccc-000009,li-00009-00-bbb-ccc-000018,100008888,"Telewizor 55"" 4K LG",2,132.00,PLN,0,,
+lineItem,ord-00010-aaa-bbb-ccc-000010,li-00010-00-bbb-ccc-000019,100009999,Tablet Apple iPad 10,3,145.00,PLN,1,,
+lineItem,ord-00010-aaa-bbb-ccc-000010,li-00010-01-bbb-ccc-000020,100010003,Zegarek Casio Edifice,4,192.00,PLN,0,,
+lineItem,ord-00011-aaa-bbb-ccc-000011,li-00011-00-bbb-ccc-000021,100010001,Bluza z kapturem Adidas,4,158.00,PLN,0,,
+lineItem,ord-00011-aaa-bbb-ccc-000011,li-00011-01-bbb-ccc-000022,100010004,Rower górski Kross,1,205.00,PLN,0,,
+lineItem,ord-00011-aaa-bbb-ccc-000011,li-00011-02-bbb-ccc-000023,100010007,Kubek termiczny 500ml,2,252.00,PLN,0,,
+lineItem,ord-00012-aaa-bbb-ccc-000012,li-00012-00-bbb-ccc-000024,100010002,Torba skórzana damska,1,171.00,PLN,0,,
+lineItem,ord-00013-aaa-bbb-ccc-000013,li-00013-00-bbb-ccc-000025,100010003,Zegarek Casio Edifice,2,184.00,PLN,0,,
+lineItem,ord-00013-aaa-bbb-ccc-000013,li-00013-01-bbb-ccc-000026,100010006,Krem nawilżający SPF50,3,231.00,PLN,0,,
+lineItem,ord-00014-aaa-bbb-ccc-000014,li-00014-00-bbb-ccc-000027,100010004,Rower górski Kross,3,197.00,PLN,0,,
+lineItem,ord-00014-aaa-bbb-ccc-000014,li-00014-01-bbb-ccc-000028,100010007,Kubek termiczny 500ml,4,244.00,PLN,0,,
+lineItem,ord-00014-aaa-bbb-ccc-000014,li-00014-02-bbb-ccc-000029,111111111,Produkt1,1,291.00,PLN,0,,
+lineItem,ord-00015-aaa-bbb-ccc-000015,li-00015-00-bbb-ccc-000030,100010005,Mata do jogi 6mm,4,210.00,PLN,0,,
+lineItem,ord-00016-aaa-bbb-ccc-000016,li-00016-00-bbb-ccc-000031,100010006,Krem nawilżający SPF50,1,223.00,PLN,0,,
+lineItem,ord-00016-aaa-bbb-ccc-000016,li-00016-01-bbb-ccc-000032,100010009,Gra planszowa Catan,2,270.00,PLN,0,,
+lineItem,ord-00017-aaa-bbb-ccc-000017,li-00017-00-bbb-ccc-000033,100010007,Kubek termiczny 500ml,2,236.00,PLN,0,,
+lineItem,ord-00017-aaa-bbb-ccc-000017,li-00017-01-bbb-ccc-000034,111111111,Produkt1,3,283.00,PLN,0,,
+lineItem,ord-00017-aaa-bbb-ccc-000017,li-00017-02-bbb-ccc-000035,100002222,Smartfon Samsung Galaxy A54,4,45.00,PLN,0,,
+lineItem,ord-00018-aaa-bbb-ccc-000018,li-00018-00-bbb-ccc-000036,100010008,Lampka biurkowa LED,3,249.00,PLN,0,,
+lineItem,ord-00019-aaa-bbb-ccc-000019,li-00019-00-bbb-ccc-000037,100010009,Gra planszowa Catan,4,262.00,PLN,0,,
+lineItem,ord-00019-aaa-bbb-ccc-000019,li-00019-01-bbb-ccc-000038,100001111,Słuchawki bezprzewodowe,1,24.00,PLN,0,,
+lineItem,ord-00020-aaa-bbb-ccc-000020,li-00020-00-bbb-ccc-000039,111111111,Produkt1,1,275.00,PLN,1,,
+lineItem,ord-00020-aaa-bbb-ccc-000020,li-00020-01-bbb-ccc-000040,100002222,Smartfon Samsung Galaxy A54,2,37.00,PLN,0,,
+lineItem,ord-00020-aaa-bbb-ccc-000020,li-00020-02-bbb-ccc-000041,100005555,Buty sportowe Nike Air,3,84.00,PLN,0,,
+lineItem,ord-00021-aaa-bbb-ccc-000021,li-00021-00-bbb-ccc-000042,222222222,Produkt2,2,288.00,PLN,0,,
+lineItem,ord-00022-aaa-bbb-ccc-000022,li-00022-00-bbb-ccc-000043,100001111,Słuchawki bezprzewodowe,3,16.00,PLN,0,,
+lineItem,ord-00022-aaa-bbb-ccc-000022,li-00022-01-bbb-ccc-000044,100004444,Kurtka zimowa damska,4,63.00,PLN,0,,
+lineItem,ord-00023-aaa-bbb-ccc-000023,li-00023-00-bbb-ccc-000045,100002222,Smartfon Samsung Galaxy A54,4,29.00,PLN,0,,
+lineItem,ord-00023-aaa-bbb-ccc-000023,li-00023-01-bbb-ccc-000046,100005555,Buty sportowe Nike Air,1,76.00,PLN,0,,
+lineItem,ord-00023-aaa-bbb-ccc-000023,li-00023-02-bbb-ccc-000047,100008888,"Telewizor 55"" 4K LG",2,123.00,PLN,0,,
+lineItem,ord-00024-aaa-bbb-ccc-000024,li-00024-00-bbb-ccc-000048,100003333,Laptop Dell Inspiron 15,1,42.00,PLN,0,,
+lineItem,ord-00025-aaa-bbb-ccc-000025,li-00025-00-bbb-ccc-000049,100004444,Kurtka zimowa damska,2,55.00,PLN,0,,
+lineItem,ord-00025-aaa-bbb-ccc-000025,li-00025-01-bbb-ccc-000050,100007777,Odkurzacz Dyson V11,3,102.00,PLN,0,,
+lineItem,ord-00026-aaa-bbb-ccc-000026,li-00026-00-bbb-ccc-000051,100005555,Buty sportowe Nike Air,3,68.00,PLN,0,,
+lineItem,ord-00026-aaa-bbb-ccc-000026,li-00026-01-bbb-ccc-000052,100008888,"Telewizor 55"" 4K LG",4,115.00,PLN,0,,
+lineItem,ord-00026-aaa-bbb-ccc-000026,li-00026-02-bbb-ccc-000053,100010002,Torba skórzana damska,1,162.00,PLN,0,,
+lineItem,ord-00027-aaa-bbb-ccc-000027,li-00027-00-bbb-ccc-000054,100006666,Ekspres do kawy DeLonghi,4,81.00,PLN,0,,
+lineItem,ord-00028-aaa-bbb-ccc-000028,li-00028-00-bbb-ccc-000055,100007777,Odkurzacz Dyson V11,1,94.00,PLN,0,,
+lineItem,ord-00028-aaa-bbb-ccc-000028,li-00028-01-bbb-ccc-000056,100010001,Bluza z kapturem Adidas,2,141.00,PLN,0,,
+lineItem,ord-00029-aaa-bbb-ccc-000029,li-00029-00-bbb-ccc-000057,100008888,"Telewizor 55"" 4K LG",2,107.00,PLN,0,,
+lineItem,ord-00029-aaa-bbb-ccc-000029,li-00029-01-bbb-ccc-000058,100010002,Torba skórzana damska,3,154.00,PLN,0,,
+lineItem,ord-00029-aaa-bbb-ccc-000029,li-00029-02-bbb-ccc-000059,100010005,Mata do jogi 6mm,4,201.00,PLN,0,,
+lineItem,ord-00030-aaa-bbb-ccc-000030,li-00030-00-bbb-ccc-000060,100009999,Tablet Apple iPad 10,3,120.00,PLN,1,,
+lineItem,ord-00031-aaa-bbb-ccc-000031,li-00031-00-bbb-ccc-000061,100010001,Bluza z kapturem Adidas,4,133.00,PLN,0,,
+lineItem,ord-00031-aaa-bbb-ccc-000031,li-00031-01-bbb-ccc-000062,100010004,Rower górski Kross,1,180.00,PLN,0,,
+lineItem,ord-00032-aaa-bbb-ccc-000032,li-00032-00-bbb-ccc-000063,100010002,Torba skórzana damska,1,146.00,PLN,0,,
+lineItem,ord-00032-aaa-bbb-ccc-000032,li-00032-01-bbb-ccc-000064,100010005,Mata do jogi 6mm,2,193.00,PLN,0,,
+lineItem,ord-00032-aaa-bbb-ccc-000032,li-00032-02-bbb-ccc-000065,100010008,Lampka biurkowa LED,3,240.00,PLN,0,,
+lineItem,ord-00033-aaa-bbb-ccc-000033,li-00033-00-bbb-ccc-000066,100010003,Zegarek Casio Edifice,2,159.00,PLN,0,,
+lineItem,ord-00034-aaa-bbb-ccc-000034,li-00034-00-bbb-ccc-000067,100010004,Rower górski Kross,3,172.00,PLN,0,,
+lineItem,ord-00034-aaa-bbb-ccc-000034,li-00034-01-bbb-ccc-000068,100010007,Kubek termiczny 500ml,4,219.00,PLN,0,,
+lineItem,ord-00035-aaa-bbb-ccc-000035,li-00035-00-bbb-ccc-000069,100010005,Mata do jogi 6mm,4,185.00,PLN,0,,
+lineItem,ord-00035-aaa-bbb-ccc-000035,li-00035-01-bbb-ccc-000070,100010008,Lampka biurkowa LED,1,232.00,PLN,0,,
+lineItem,ord-00035-aaa-bbb-ccc-000035,li-00035-02-bbb-ccc-000071,222222222,Produkt2,2,279.00,PLN,0,,
+lineItem,ord-00036-aaa-bbb-ccc-000036,li-00036-00-bbb-ccc-000072,100010006,Krem nawilżający SPF50,1,198.00,PLN,0,,
+lineItem,ord-00037-aaa-bbb-ccc-000037,li-00037-00-bbb-ccc-000073,100010007,Kubek termiczny 500ml,2,211.00,PLN,0,,
+lineItem,ord-00037-aaa-bbb-ccc-000037,li-00037-01-bbb-ccc-000074,111111111,Produkt1,3,258.00,PLN,0,,
+lineItem,ord-00038-aaa-bbb-ccc-000038,li-00038-00-bbb-ccc-000075,100010008,Lampka biurkowa LED,3,224.00,PLN,0,,
+lineItem,ord-00038-aaa-bbb-ccc-000038,li-00038-01-bbb-ccc-000076,222222222,Produkt2,4,271.00,PLN,0,,
+lineItem,ord-00038-aaa-bbb-ccc-000038,li-00038-02-bbb-ccc-000077,100003333,Laptop Dell Inspiron 15,1,33.00,PLN,0,,
+lineItem,ord-00039-aaa-bbb-ccc-000039,li-00039-00-bbb-ccc-000078,100010009,Gra planszowa Catan,4,237.00,PLN,0,,
+lineItem,ord-00040-aaa-bbb-ccc-000040,li-00040-00-bbb-ccc-000079,111111111,Produkt1,1,250.00,PLN,1,,
+lineItem,ord-00040-aaa-bbb-ccc-000040,li-00040-01-bbb-ccc-000080,100002222,Smartfon Samsung Galaxy A54,2,297.00,PLN,0,,
+lineItem,ord-00041-aaa-bbb-ccc-000041,li-00041-00-bbb-ccc-000081,222222222,Produkt2,2,263.00,PLN,0,,
+lineItem,ord-00041-aaa-bbb-ccc-000041,li-00041-01-bbb-ccc-000082,100003333,Laptop Dell Inspiron 15,3,25.00,PLN,0,,
+lineItem,ord-00041-aaa-bbb-ccc-000041,li-00041-02-bbb-ccc-000083,100006666,Ekspres do kawy DeLonghi,4,72.00,PLN,0,,
+lineItem,ord-00042-aaa-bbb-ccc-000042,li-00042-00-bbb-ccc-000084,100001111,Słuchawki bezprzewodowe,3,276.00,PLN,0,,
+lineItem,ord-00043-aaa-bbb-ccc-000043,li-00043-00-bbb-ccc-000085,100002222,Smartfon Samsung Galaxy A54,4,289.00,PLN,0,,
+lineItem,ord-00043-aaa-bbb-ccc-000043,li-00043-01-bbb-ccc-000086,100005555,Buty sportowe Nike Air,1,51.00,PLN,0,,
+lineItem,ord-00044-aaa-bbb-ccc-000044,li-00044-00-bbb-ccc-000087,100003333,Laptop Dell Inspiron 15,1,17.00,PLN,0,,
+lineItem,ord-00044-aaa-bbb-ccc-000044,li-00044-01-bbb-ccc-000088,100006666,Ekspres do kawy DeLonghi,2,64.00,PLN,0,,
+lineItem,ord-00044-aaa-bbb-ccc-000044,li-00044-02-bbb-ccc-000089,100009999,Tablet Apple iPad 10,3,111.00,PLN,0,,
+lineItem,ord-00045-aaa-bbb-ccc-000045,li-00045-00-bbb-ccc-000090,100004444,Kurtka zimowa damska,2,30.00,PLN,0,,
+lineItem,ord-00046-aaa-bbb-ccc-000046,li-00046-00-bbb-ccc-000091,100005555,Buty sportowe Nike Air,3,43.00,PLN,0,,
+lineItem,ord-00046-aaa-bbb-ccc-000046,li-00046-01-bbb-ccc-000092,100008888,"Telewizor 55"" 4K LG",4,90.00,PLN,0,,
+lineItem,ord-00047-aaa-bbb-ccc-000047,li-00047-00-bbb-ccc-000093,100006666,Ekspres do kawy DeLonghi,4,56.00,PLN,0,,
+lineItem,ord-00047-aaa-bbb-ccc-000047,li-00047-01-bbb-ccc-000094,100009999,Tablet Apple iPad 10,1,103.00,PLN,0,,
+lineItem,ord-00047-aaa-bbb-ccc-000047,li-00047-02-bbb-ccc-000095,100010003,Zegarek Casio Edifice,2,150.00,PLN,0,,
+lineItem,ord-00048-aaa-bbb-ccc-000048,li-00048-00-bbb-ccc-000096,100007777,Odkurzacz Dyson V11,1,69.00,PLN,0,,
+lineItem,ord-00049-aaa-bbb-ccc-000049,li-00049-00-bbb-ccc-000097,100008888,"Telewizor 55"" 4K LG",2,82.00,PLN,0,,
+lineItem,ord-00049-aaa-bbb-ccc-000049,li-00049-01-bbb-ccc-000098,100010002,Torba skórzana damska,3,129.00,PLN,0,,
+lineItem,ord-00050-aaa-bbb-ccc-000050,li-00050-00-bbb-ccc-000099,100009999,Tablet Apple iPad 10,3,95.00,PLN,1,,
+lineItem,ord-00050-aaa-bbb-ccc-000050,li-00050-01-bbb-ccc-000100,100010003,Zegarek Casio Edifice,4,142.00,PLN,0,,
+lineItem,ord-00050-aaa-bbb-ccc-000050,li-00050-02-bbb-ccc-000101,100010006,Krem nawilżający SPF50,1,189.00,PLN,0,,
+lineItem,ord-00051-aaa-bbb-ccc-000051,li-00051-00-bbb-ccc-000102,100010001,Bluza z kapturem Adidas,4,108.00,PLN,0,,
+lineItem,ord-00052-aaa-bbb-ccc-000052,li-00052-00-bbb-ccc-000103,100010002,Torba skórzana damska,1,121.00,PLN,0,,
+lineItem,ord-00052-aaa-bbb-ccc-000052,li-00052-01-bbb-ccc-000104,100010005,Mata do jogi 6mm,2,168.00,PLN,0,,
+lineItem,ord-00053-aaa-bbb-ccc-000053,li-00053-00-bbb-ccc-000105,100010003,Zegarek Casio Edifice,2,134.00,PLN,0,,
+lineItem,ord-00053-aaa-bbb-ccc-000053,li-00053-01-bbb-ccc-000106,100010006,Krem nawilżający SPF50,3,181.00,PLN,0,,
+lineItem,ord-00053-aaa-bbb-ccc-000053,li-00053-02-bbb-ccc-000107,100010009,Gra planszowa Catan,4,228.00,PLN,0,,
+lineItem,ord-00054-aaa-bbb-ccc-000054,li-00054-00-bbb-ccc-000108,100010004,Rower górski Kross,3,147.00,PLN,0,,
+lineItem,ord-00055-aaa-bbb-ccc-000055,li-00055-00-bbb-ccc-000109,100010005,Mata do jogi 6mm,4,160.00,PLN,0,,
+lineItem,ord-00055-aaa-bbb-ccc-000055,li-00055-01-bbb-ccc-000110,100010008,Lampka biurkowa LED,1,207.00,PLN,0,,
+lineItem,ord-00056-aaa-bbb-ccc-000056,li-00056-00-bbb-ccc-000111,100010006,Krem nawilżający SPF50,1,173.00,PLN,0,,
+lineItem,ord-00056-aaa-bbb-ccc-000056,li-00056-01-bbb-ccc-000112,100010009,Gra planszowa Catan,2,220.00,PLN,0,,
+lineItem,ord-00056-aaa-bbb-ccc-000056,li-00056-02-bbb-ccc-000113,100001111,Słuchawki bezprzewodowe,3,267.00,PLN,0,,
+lineItem,ord-00057-aaa-bbb-ccc-000057,li-00057-00-bbb-ccc-000114,100010007,Kubek termiczny 500ml,2,186.00,PLN,0,,
+lineItem,ord-00058-aaa-bbb-ccc-000058,li-00058-00-bbb-ccc-000115,100010008,Lampka biurkowa LED,3,199.00,PLN,0,,
+lineItem,ord-00058-aaa-bbb-ccc-000058,li-00058-01-bbb-ccc-000116,222222222,Produkt2,4,246.00,PLN,0,,
+lineItem,ord-00059-aaa-bbb-ccc-000059,li-00059-00-bbb-ccc-000117,100010009,Gra planszowa Catan,4,212.00,PLN,0,,
+lineItem,ord-00059-aaa-bbb-ccc-000059,li-00059-01-bbb-ccc-000118,100001111,Słuchawki bezprzewodowe,1,259.00,PLN,0,,
+lineItem,ord-00059-aaa-bbb-ccc-000059,li-00059-02-bbb-ccc-000119,100004444,Kurtka zimowa damska,2,21.00,PLN,0,,
+lineItem,ord-00060-aaa-bbb-ccc-000060,li-00060-00-bbb-ccc-000120,111111111,Produkt1,1,225.00,PLN,1,,
+lineItem,ord-00061-aaa-bbb-ccc-000061,li-00061-00-bbb-ccc-000121,222222222,Produkt2,2,238.00,PLN,0,,
+lineItem,ord-00061-aaa-bbb-ccc-000061,li-00061-01-bbb-ccc-000122,100003333,Laptop Dell Inspiron 15,3,285.00,PLN,0,,
+lineItem,ord-00062-aaa-bbb-ccc-000062,li-00062-00-bbb-ccc-000123,100001111,Słuchawki bezprzewodowe,3,251.00,PLN,0,,
+lineItem,ord-00062-aaa-bbb-ccc-000062,li-00062-01-bbb-ccc-000124,100004444,Kurtka zimowa damska,4,298.00,PLN,0,,
+lineItem,ord-00062-aaa-bbb-ccc-000062,li-00062-02-bbb-ccc-000125,100007777,Odkurzacz Dyson V11,1,60.00,PLN,0,,
+lineItem,ord-00063-aaa-bbb-ccc-000063,li-00063-00-bbb-ccc-000126,100002222,Smartfon Samsung Galaxy A54,4,264.00,PLN,0,,
+lineItem,ord-00064-aaa-bbb-ccc-000064,li-00064-00-bbb-ccc-000127,100003333,Laptop Dell Inspiron 15,1,277.00,PLN,0,,
+lineItem,ord-00064-aaa-bbb-ccc-000064,li-00064-01-bbb-ccc-000128,100006666,Ekspres do kawy DeLonghi,2,39.00,PLN,0,,
+lineItem,ord-00065-aaa-bbb-ccc-000065,li-00065-00-bbb-ccc-000129,100004444,Kurtka zimowa damska,2,290.00,PLN,0,,
+lineItem,ord-00065-aaa-bbb-ccc-000065,li-00065-01-bbb-ccc-000130,100007777,Odkurzacz Dyson V11,3,52.00,PLN,0,,
+lineItem,ord-00065-aaa-bbb-ccc-000065,li-00065-02-bbb-ccc-000131,100010001,Bluza z kapturem Adidas,4,99.00,PLN,0,,
+lineItem,ord-00066-aaa-bbb-ccc-000066,li-00066-00-bbb-ccc-000132,100005555,Buty sportowe Nike Air,3,18.00,PLN,0,,
+lineItem,ord-00067-aaa-bbb-ccc-000067,li-00067-00-bbb-ccc-000133,100006666,Ekspres do kawy DeLonghi,4,31.00,PLN,0,,
+lineItem,ord-00067-aaa-bbb-ccc-000067,li-00067-01-bbb-ccc-000134,100009999,Tablet Apple iPad 10,1,78.00,PLN,0,,
+lineItem,ord-00068-aaa-bbb-ccc-000068,li-00068-00-bbb-ccc-000135,100007777,Odkurzacz Dyson V11,1,44.00,PLN,0,,
+lineItem,ord-00068-aaa-bbb-ccc-000068,li-00068-01-bbb-ccc-000136,100010001,Bluza z kapturem Adidas,2,91.00,PLN,0,,
+lineItem,ord-00068-aaa-bbb-ccc-000068,li-00068-02-bbb-ccc-000137,100010004,Rower górski Kross,3,138.00,PLN,0,,
+lineItem,ord-00069-aaa-bbb-ccc-000069,li-00069-00-bbb-ccc-000138,100008888,"Telewizor 55"" 4K LG",2,57.00,PLN,0,,
+lineItem,ord-00070-aaa-bbb-ccc-000070,li-00070-00-bbb-ccc-000139,100009999,Tablet Apple iPad 10,3,70.00,PLN,1,,
+lineItem,ord-00070-aaa-bbb-ccc-000070,li-00070-01-bbb-ccc-000140,100010003,Zegarek Casio Edifice,4,117.00,PLN,0,,
+lineItem,ord-00071-aaa-bbb-ccc-000071,li-00071-00-bbb-ccc-000141,100010001,Bluza z kapturem Adidas,4,83.00,PLN,0,,
+lineItem,ord-00071-aaa-bbb-ccc-000071,li-00071-01-bbb-ccc-000142,100010004,Rower górski Kross,1,130.00,PLN,0,,
+lineItem,ord-00071-aaa-bbb-ccc-000071,li-00071-02-bbb-ccc-000143,100010007,Kubek termiczny 500ml,2,177.00,PLN,0,,
+lineItem,ord-00072-aaa-bbb-ccc-000072,li-00072-00-bbb-ccc-000144,100010002,Torba skórzana damska,1,96.00,PLN,0,,
+lineItem,ord-00073-aaa-bbb-ccc-000073,li-00073-00-bbb-ccc-000145,100010003,Zegarek Casio Edifice,2,109.00,PLN,0,,
+lineItem,ord-00073-aaa-bbb-ccc-000073,li-00073-01-bbb-ccc-000146,100010006,Krem nawilżający SPF50,3,156.00,PLN,0,,
+lineItem,ord-00074-aaa-bbb-ccc-000074,li-00074-00-bbb-ccc-000147,100010004,Rower górski Kross,3,122.00,PLN,0,,
+lineItem,ord-00074-aaa-bbb-ccc-000074,li-00074-01-bbb-ccc-000148,100010007,Kubek termiczny 500ml,4,169.00,PLN,0,,
+lineItem,ord-00074-aaa-bbb-ccc-000074,li-00074-02-bbb-ccc-000149,111111111,Produkt1,1,216.00,PLN,0,,
+lineItem,ord-00075-aaa-bbb-ccc-000075,li-00075-00-bbb-ccc-000150,100010005,Mata do jogi 6mm,4,135.00,PLN,0,,
+lineItem,ord-00076-aaa-bbb-ccc-000076,li-00076-00-bbb-ccc-000151,100010006,Krem nawilżający SPF50,1,148.00,PLN,0,,
+lineItem,ord-00076-aaa-bbb-ccc-000076,li-00076-01-bbb-ccc-000152,100010009,Gra planszowa Catan,2,195.00,PLN,0,,
+lineItem,ord-00077-aaa-bbb-ccc-000077,li-00077-00-bbb-ccc-000153,100010007,Kubek termiczny 500ml,2,161.00,PLN,0,,
+lineItem,ord-00077-aaa-bbb-ccc-000077,li-00077-01-bbb-ccc-000154,111111111,Produkt1,3,208.00,PLN,0,,
+lineItem,ord-00077-aaa-bbb-ccc-000077,li-00077-02-bbb-ccc-000155,100002222,Smartfon Samsung Galaxy A54,4,255.00,PLN,0,,
+lineItem,ord-00078-aaa-bbb-ccc-000078,li-00078-00-bbb-ccc-000156,100010008,Lampka biurkowa LED,3,174.00,PLN,0,,
+lineItem,ord-00079-aaa-bbb-ccc-000079,li-00079-00-bbb-ccc-000157,100010009,Gra planszowa Catan,4,187.00,PLN,0,,
+lineItem,ord-00079-aaa-bbb-ccc-000079,li-00079-01-bbb-ccc-000158,100001111,Słuchawki bezprzewodowe,1,234.00,PLN,0,,
+lineItem,ord-00080-aaa-bbb-ccc-000080,li-00080-00-bbb-ccc-000159,111111111,Produkt1,1,200.00,PLN,1,,
+lineItem,ord-00080-aaa-bbb-ccc-000080,li-00080-01-bbb-ccc-000160,100002222,Smartfon Samsung Galaxy A54,2,247.00,PLN,0,,
+lineItem,ord-00080-aaa-bbb-ccc-000080,li-00080-02-bbb-ccc-000161,100005555,Buty sportowe Nike Air,3,294.00,PLN,0,,
+lineItem,ord-00081-aaa-bbb-ccc-000081,li-00081-00-bbb-ccc-000162,222222222,Produkt2,2,213.00,PLN,0,,
+lineItem,ord-00082-aaa-bbb-ccc-000082,li-00082-00-bbb-ccc-000163,100001111,Słuchawki bezprzewodowe,3,226.00,PLN,0,,
+lineItem,ord-00082-aaa-bbb-ccc-000082,li-00082-01-bbb-ccc-000164,100004444,Kurtka zimowa damska,4,273.00,PLN,0,,
+lineItem,ord-00083-aaa-bbb-ccc-000083,li-00083-00-bbb-ccc-000165,100002222,Smartfon Samsung Galaxy A54,4,239.00,PLN,0,,
+lineItem,ord-00083-aaa-bbb-ccc-000083,li-00083-01-bbb-ccc-000166,100005555,Buty sportowe Nike Air,1,286.00,PLN,0,,
+lineItem,ord-00083-aaa-bbb-ccc-000083,li-00083-02-bbb-ccc-000167,100008888,"Telewizor 55"" 4K LG",2,48.00,PLN,0,,
+lineItem,ord-00084-aaa-bbb-ccc-000084,li-00084-00-bbb-ccc-000168,100003333,Laptop Dell Inspiron 15,1,252.00,PLN,0,,
+lineItem,ord-00085-aaa-bbb-ccc-000085,li-00085-00-bbb-ccc-000169,100004444,Kurtka zimowa damska,2,265.00,PLN,0,,
+lineItem,ord-00085-aaa-bbb-ccc-000085,li-00085-01-bbb-ccc-000170,100007777,Odkurzacz Dyson V11,3,27.00,PLN,0,,
+lineItem,ord-00086-aaa-bbb-ccc-000086,li-00086-00-bbb-ccc-000171,100005555,Buty sportowe Nike Air,3,278.00,PLN,0,,
+lineItem,ord-00086-aaa-bbb-ccc-000086,li-00086-01-bbb-ccc-000172,100008888,"Telewizor 55"" 4K LG",4,40.00,PLN,0,,
+lineItem,ord-00086-aaa-bbb-ccc-000086,li-00086-02-bbb-ccc-000173,100010002,Torba skórzana damska,1,87.00,PLN,0,,
+lineItem,ord-00087-aaa-bbb-ccc-000087,li-00087-00-bbb-ccc-000174,100006666,Ekspres do kawy DeLonghi,4,291.00,PLN,0,,
+lineItem,ord-00088-aaa-bbb-ccc-000088,li-00088-00-bbb-ccc-000175,100007777,Odkurzacz Dyson V11,1,19.00,PLN,0,,
+lineItem,ord-00088-aaa-bbb-ccc-000088,li-00088-01-bbb-ccc-000176,100010001,Bluza z kapturem Adidas,2,66.00,PLN,0,,
+lineItem,ord-00089-aaa-bbb-ccc-000089,li-00089-00-bbb-ccc-000177,100008888,"Telewizor 55"" 4K LG",2,32.00,PLN,0,,
+lineItem,ord-00089-aaa-bbb-ccc-000089,li-00089-01-bbb-ccc-000178,100010002,Torba skórzana damska,3,79.00,PLN,0,,
+lineItem,ord-00089-aaa-bbb-ccc-000089,li-00089-02-bbb-ccc-000179,100010005,Mata do jogi 6mm,4,126.00,PLN,0,,
+lineItem,ord-00090-aaa-bbb-ccc-000090,li-00090-00-bbb-ccc-000180,100009999,Tablet Apple iPad 10,3,45.00,PLN,1,,
+lineItem,ord-00091-aaa-bbb-ccc-000091,li-00091-00-bbb-ccc-000181,100010001,Bluza z kapturem Adidas,4,58.00,PLN,0,,
+lineItem,ord-00091-aaa-bbb-ccc-000091,li-00091-01-bbb-ccc-000182,100010004,Rower górski Kross,1,105.00,PLN,0,,
+lineItem,ord-00092-aaa-bbb-ccc-000092,li-00092-00-bbb-ccc-000183,100010002,Torba skórzana damska,1,71.00,PLN,0,,
+lineItem,ord-00092-aaa-bbb-ccc-000092,li-00092-01-bbb-ccc-000184,100010005,Mata do jogi 6mm,2,118.00,PLN,0,,
+lineItem,ord-00092-aaa-bbb-ccc-000092,li-00092-02-bbb-ccc-000185,100010008,Lampka biurkowa LED,3,165.00,PLN,0,,
+lineItem,ord-00093-aaa-bbb-ccc-000093,li-00093-00-bbb-ccc-000186,100010003,Zegarek Casio Edifice,2,84.00,PLN,0,,
+lineItem,ord-00094-aaa-bbb-ccc-000094,li-00094-00-bbb-ccc-000187,100010004,Rower górski Kross,3,97.00,PLN,0,,
+lineItem,ord-00094-aaa-bbb-ccc-000094,li-00094-01-bbb-ccc-000188,100010007,Kubek termiczny 500ml,4,144.00,PLN,0,,
+lineItem,ord-00095-aaa-bbb-ccc-000095,li-00095-00-bbb-ccc-000189,100010005,Mata do jogi 6mm,4,110.00,PLN,0,,
+lineItem,ord-00095-aaa-bbb-ccc-000095,li-00095-01-bbb-ccc-000190,100010008,Lampka biurkowa LED,1,157.00,PLN,0,,
+lineItem,ord-00095-aaa-bbb-ccc-000095,li-00095-02-bbb-ccc-000191,222222222,Produkt2,2,204.00,PLN,0,,
+lineItem,ord-00096-aaa-bbb-ccc-000096,li-00096-00-bbb-ccc-000192,100010006,Krem nawilżający SPF50,1,123.00,PLN,0,,
+lineItem,ord-00097-aaa-bbb-ccc-000097,li-00097-00-bbb-ccc-000193,100010007,Kubek termiczny 500ml,2,136.00,PLN,0,,
+lineItem,ord-00097-aaa-bbb-ccc-000097,li-00097-01-bbb-ccc-000194,111111111,Produkt1,3,183.00,PLN,0,,
+lineItem,ord-00098-aaa-bbb-ccc-000098,li-00098-00-bbb-ccc-000195,100010008,Lampka biurkowa LED,3,149.00,PLN,0,,
+lineItem,ord-00098-aaa-bbb-ccc-000098,li-00098-01-bbb-ccc-000196,222222222,Produkt2,4,196.00,PLN,0,,
+lineItem,ord-00098-aaa-bbb-ccc-000098,li-00098-02-bbb-ccc-000197,100003333,Laptop Dell Inspiron 15,1,243.00,PLN,0,,
+lineItem,ord-00099-aaa-bbb-ccc-000099,li-00099-00-bbb-ccc-000198,100010009,Gra planszowa Catan,4,162.00,PLN,0,,
+
+Type,NumberOfOrders,NumberOfSkippedOrders
+summary,100,0
