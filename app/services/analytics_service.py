@@ -63,14 +63,14 @@ class AnalyticsService:
                 return_rate = (
                         Decimal(row.returns_quantity)
                         / Decimal(row.sold_quantity)
-                        * Decimal("100").quantize(Decimal("0.01"))
+                        * Decimal("100")
                 )
             result.append(
                 TopReturnedProductsResponse(
                     name=row.name,
                     sold_quantity=row.sold_quantity,
                     returns_quantity=row.returns_quantity,
-                    return_rate=return_rate,
+                    return_rate=return_rate.quantize(Decimal("0.01")),
                 )
             )
         return result
