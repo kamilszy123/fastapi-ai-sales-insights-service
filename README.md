@@ -31,6 +31,7 @@ modifying service layer code.
 * Sales analytics and aggregations
 * AI-powered sales analysis
 * Agentic AI analysis (tool-calling loop with natural language Q&A)
+* MCP server for Claude Desktop (query sales data via natural language, no HTTP/JWT required)
 * Structured Outputs (OpenAI)
 * Automatic retry mechanism for transient AI failures
 * Provider-based AI integration architecture
@@ -47,6 +48,7 @@ modifying service layer code.
 * ORM:        SQLAlchemy
 * Migrations: Alembic
 * AI:         OpenAI API
+* MCP:        Model Context Protocol (Claude Desktop integration)
 * Auth:       JWT
 * Testing:    pytest
 * Validation: Pydantic
@@ -275,7 +277,38 @@ business logic.
 
 ---
 
+## MCP SERVER (CLAUDE DESKTOP INTEGRATION)
+
+`mcp_server/` exposes the same analytics queries — `get_top_products`,
+`get_top_returned_products`, `get_monthly_sales` — as MCP tools, so
+Claude Desktop can query the Postgres sales data directly, without
+going through the HTTP API or JWT authentication.
+
+It requires its own `MCP_DATABASE_URL` in `.env` (host-reachable,
+`localhost:5433` — distinct from the app's Docker-internal
+`DATABASE_URL`) and `MCP_USER_ID`, since it runs as a plain host
+process launched by Claude Desktop rather than inside Docker.
+
+See `mcp_server/README.md` for full setup and Claude Desktop
+configuration.
+
+---
+
 ## PROJECT STRUCTURE
+
+Top level:
+
+      .
+      ├── app                 (FastAPI application, see below)
+      ├── mcp_server
+      │   ├── sales_mcp_server.py
+      │   └── README.md
+      ├── sample_data
+      │   └── orders_sample.csv
+      ├── alembic
+      └── docker-compose.yml
+
+`app/` in detail:
 
       app
       ├── api
@@ -470,6 +503,7 @@ summary,1,0
 * AI analysis depends on OpenAI API availability
 * No background task queue
 * No caching layer
+* MCP server tools are not covered by the automated pytest suite (verify manually via the MCP dev inspector)
 
 ---
 
