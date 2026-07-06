@@ -50,8 +50,8 @@ engine = create_engine(_settings.mcp_database_url, pool_pre_ping=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 from app.repositories.analytics_repository import AnalyticsRepository  # noqa: E402  (imports after settings so .env is loaded)
-from app.services.analytics_service import AnalyticsService
-from app.tools.analytics_tools import (
+from app.services.analytics_service import AnalyticsService  # noqa: E402
+from app.tools.analytics_tools import (  # noqa: E402
     GetMonthlySalesArgs,
     GetTopProductsArgs,
     GetTopReturnedProductsArgs,

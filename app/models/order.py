@@ -1,10 +1,16 @@
 from datetime import datetime, UTC
 from decimal import Decimal
+from typing import TYPE_CHECKING
 
 from sqlalchemy import ForeignKey, DateTime, Numeric, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
+
+if TYPE_CHECKING:
+    from app.models.user import User
+    from app.models.order_item import OrderItem
+    from app.models.import_job import ImportJob
 
 
 def utc_now() -> datetime:

@@ -1,0 +1,3 @@
+[tool.ruff.lint.per-file-ignores]
+"alembic/env.py" = ["E402", "F401"]
+"app/main.py" = ["F401"]
