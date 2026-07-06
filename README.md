@@ -460,6 +460,12 @@ Run tests:
 pytest
 ```
 
+Run lint:
+
+```
+ruff check .
+```
+
 
 Includes:
 

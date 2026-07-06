@@ -35,7 +35,12 @@ alembic revision --autogenerate -m "migration_name"
 ```
 Note: `alembic.ini` uses `ALEMBIC_DATABASE_URL` from `.env` (port 5433, localhost), while the app itself uses `DATABASE_URL` (port 5432, `db` host) — these point at the same Postgres container but via different host/port since Alembic runs from outside Docker while the app runs inside it.
 
-Config is loaded from `.env` (see `.env.example`) via `app/core/config.py` (`pydantic-settings`). There is no separate lint/format command configured in this repo.
+Config is loaded from `.env` (see `.env.example`) via `app/core/config.py` (`pydantic-settings`).
+
+Lint:
+```
+ruff check .
+```
 
 ## Architecture
 
