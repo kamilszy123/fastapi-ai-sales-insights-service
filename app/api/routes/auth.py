@@ -1,8 +1,7 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends
 
 from app.core.dependencies import get_user_service
 from app.core.security import get_current_user
-from app.exceptions.user_exceptions import UserAlreadyExistsError, InvalidCredentialsError
 from app.models.user import User
 from app.schemas.auth import UserResponse, RegisterRequest, TokenResponse, LoginRequest
 from app.services.user_service import UserService

@@ -2,7 +2,6 @@ from unittest.mock import Mock, AsyncMock, patch
 
 from openai import APIConnectionError
 
-import app.providers.openai_provider
 import pytest
 
 from app.core.config import settings
