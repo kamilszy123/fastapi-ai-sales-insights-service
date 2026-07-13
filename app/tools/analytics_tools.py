@@ -1,14 +1,20 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from app.services.analytics_service import AnalyticsService
 
 
 class GetTopProductsArgs(BaseModel):
-    limit: int = 5
+    limit: int = Field(
+        5, ge=1, le=50,
+        description="Maximum number of top-selling products to return, ranked by revenue in descending order.",
+    )
 
 
 class GetTopReturnedProductsArgs(BaseModel):
-    limit: int = 5
+    limit: int = Field(
+        5, ge=1, le=50,
+        description="Maximum number of products to return, ranked by return count in descending order.",
+    )
 
 
 class GetMonthlySalesArgs(BaseModel):

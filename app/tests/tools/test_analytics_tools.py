@@ -115,6 +115,22 @@ FEB = datetime(2024, 2, 10, tzinfo=UTC)
 MAR = datetime(2024, 3, 5, tzinfo=UTC)
 
 
+# ── arg schemas ──────────────────────────────────────────────────────────────
+
+def test_get_top_products_args_schema_has_description_and_bounds():
+    schema = GetTopProductsArgs.model_json_schema()
+    assert "description" in schema["properties"]["limit"]
+    assert schema["properties"]["limit"]["minimum"] == 1
+    assert schema["properties"]["limit"]["maximum"] == 50
+
+
+def test_get_top_returned_products_args_schema_has_description_and_bounds():
+    schema = GetTopReturnedProductsArgs.model_json_schema()
+    assert "description" in schema["properties"]["limit"]
+    assert schema["properties"]["limit"]["minimum"] == 1
+    assert schema["properties"]["limit"]["maximum"] == 50
+
+
 # ── get_top_products_tool ────────────────────────────────────────────────────
 
 def test_get_top_products_isolates_by_user_id(db_session, analytics_service):
