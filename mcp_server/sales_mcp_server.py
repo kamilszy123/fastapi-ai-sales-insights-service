@@ -136,6 +136,92 @@ def get_monthly_sales() -> dict:
         )
 
 
+@mcp.resource(
+    "sales://overview",
+    name="sales_overview",
+    description="Current store-wide totals: orders count, revenue, products sold, returns count.",
+    mime_type="application/json",
+)
+@_log_errors
+def sales_overview() -> dict:
+    with _analytics_service() as service:
+        return service.get_overview(user_id=_settings.mcp_user_id).model_dump(mode="json")
+
+
+@mcp.resource(
+    "sales://returns/overview",
+    name="returns_overview",
+    description="Store-wide return metrics: products sold, returns count, return rate.",
+    mime_type="application/json",
+)
+@_log_errors
+def returns_overview() -> dict:
+    with _analytics_service() as service:
+        return service.get_returns_overview(user_id=_settings.mcp_user_id).model_dump(mode="json")
+
+
+@mcp.resource(
+    "sales://offers/{offer_id}/name-performance",
+    name="offer_name_performance",
+    description=(
+        "Sales performance for a specific offer, broken down by product name "
+        "(sold/returns quantity, revenue, average price, return rate, active-days stats)."
+    ),
+    mime_type="application/json",
+)
+@_log_errors
+def offer_name_performance(offer_id: str) -> dict:
+    with _analytics_service() as service:
+        result = service.get_offer_name_performance(
+            user_id=_settings.mcp_user_id, offer_id=offer_id
+        )
+        return {"name_performance": [r.model_dump(mode="json") for r in result]}
+
+
+@mcp.resource(
+    "sales://offers/{offer_id}/price-performance",
+    name="offer_price_performance",
+    description=(
+        "Sales performance for a specific offer, broken down by price point "
+        "(sold/returns quantity, revenue, return rate)."
+    ),
+    mime_type="application/json",
+)
+@_log_errors
+def offer_price_performance(offer_id: str) -> dict:
+    with _analytics_service() as service:
+        result = service.get_offer_price_performance(
+            user_id=_settings.mcp_user_id, offer_id=offer_id
+        )
+        return {"price_performance": [r.model_dump(mode="json") for r in result]}
+
+
+@mcp.prompt()
+def sales_performance_review() -> str:
+    """Start a full store performance review using the available tools and resources."""
+    return (
+        "Give me a full review of my store's sales performance. "
+        "Use get_top_products, get_top_returned_products, and get_monthly_sales "
+        "(and the sales://overview and sales://returns/overview resources) to ground your analysis. "
+        "Use only the data returned by these tools/resources — do not invent numbers or speculate "
+        "about competitors, customer behavior, or product quality beyond what the data supports. "
+        "Call out any months with partial data. Keep recommendations practical and actionable."
+    )
+
+
+@mcp.prompt()
+def offer_deep_dive(offer_id: str) -> str:
+    """Start a focused performance review for a single offer."""
+    return (
+        f"Analyze the sales performance of offer {offer_id}. "
+        f"Use the sales://offers/{offer_id}/name-performance and "
+        f"sales://offers/{offer_id}/price-performance resources to ground your analysis. "
+        "Use only the data returned by these resources — do not invent numbers or speculate beyond "
+        "what the data supports. Highlight return-rate concerns and pricing performance, and state "
+        "explicitly if the data is insufficient to draw a conclusion."
+    )
+
+
 if __name__ == "__main__":
     logger.info("Starting Sales Analytics MCP server (stdio)")
     mcp.run()

@@ -74,3 +74,19 @@ This opens an interactive browser UI where you can call each tool and inspect th
 | `get_top_products(limit=5)` | Top-selling products ranked by revenue |
 | `get_top_returned_products(limit=5)` | Products with the most returns, with return rate |
 | `get_monthly_sales()` | Month-by-month orders, revenue, and average order value |
+
+## Available Resources
+
+| Resource | URI | Description |
+|---|---|---|
+| Sales overview | `sales://overview` | Store-wide totals: orders, revenue, products sold, returns |
+| Returns overview | `sales://returns/overview` | Store-wide return metrics and return rate |
+| Offer name performance | `sales://offers/{offer_id}/name-performance` | Per-offer performance broken down by product name |
+| Offer price performance | `sales://offers/{offer_id}/price-performance` | Per-offer performance broken down by price point |
+
+## Available Prompts
+
+| Prompt | Description |
+|---|---|
+| `sales_performance_review()` | Starts a full store performance review using top products, returns, and monthly sales |
+| `offer_deep_dive(offer_id)` | Starts a focused performance review for a single offer |
