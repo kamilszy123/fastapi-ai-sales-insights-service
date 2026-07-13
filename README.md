@@ -284,6 +284,12 @@ business logic.
 Claude Desktop can query the Postgres sales data directly, without
 going through the HTTP API or JWT authentication.
 
+It also exposes MCP resources (store overview, returns overview,
+and per-offer name/price performance) and MCP prompts
+(`sales_performance_review`, `offer_deep_dive`) that ground analysis
+in those tools/resources. Support for surfacing resources and prompts
+in the UI depends on the MCP client — verify in your target client.
+
 It requires its own `MCP_DATABASE_URL` in `.env` (host-reachable,
 `localhost:5433` — distinct from the app's Docker-internal
 `DATABASE_URL`) and `MCP_USER_ID`, since it runs as a plain host
