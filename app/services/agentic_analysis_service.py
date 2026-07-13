@@ -5,6 +5,7 @@ from typing import Callable
 from pydantic import BaseModel
 
 from app.exceptions.ai_exceptions import AIProviderError
+from app.prompts.sales_analysis_prompt import build_agentic_system_prompt
 from app.providers.ai_provider import AIProvider
 from app.schemas.ai import AgenticAnswer, TextResult, ToolDefinition
 from app.services.analytics_service import AnalyticsService
@@ -62,19 +63,13 @@ class AgenticAnalysisService:
         self.max_iterations = max_iterations
 
     async def run(self, question: str, user_id: int) -> AgenticAnswer:
-        messages: list[dict] = [
-            {
-                "role": "system",
-                "content": (
-                    "Only use data returned by the provided tools. "
-                    "Do not fabricate numbers or conclusions not supported by tool results."
-                ),
-            },
-            {"role": "user", "content": question},
-        ]
         tools = [
             ToolDefinition(name=e.name, description=e.description, args_model=e.args_model)
             for e in _TOOL_REGISTRY
+        ]
+        messages: list[dict] = [
+            {"role": "system", "content": build_agentic_system_prompt(tools)},
+            {"role": "user", "content": question},
         ]
         tool_calls_log: list[dict] = []
 
